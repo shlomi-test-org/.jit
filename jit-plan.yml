@@ -8,11 +8,14 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Require MFA for SCM
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Require Branch Protection for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+  - name: Require MFA for SCM
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Scan code for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
