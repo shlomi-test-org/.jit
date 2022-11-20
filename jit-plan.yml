@@ -30,3 +30,6 @@ items:
   - name: Ensure IAM roles adhere to the least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
