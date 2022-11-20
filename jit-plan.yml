@@ -11,19 +11,22 @@ items:
   - name: Require Branch Protection for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+  - name: Scan code for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan container images
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Scan code dependencies for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+  - name: Scan IaC for static misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Require MFA for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan code for vulnerabilities
+  - name: Ensure IAM roles adhere to the least privilege principle
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan code dependencies for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Scan container images
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Scan IaC for static misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+      jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
