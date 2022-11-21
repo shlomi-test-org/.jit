@@ -8,6 +8,8 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Ensure your API is secure
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Require Branch Protection for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
@@ -33,8 +35,3 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Ensure your API is secure
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
-  - name: Require MFA for SCM
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
