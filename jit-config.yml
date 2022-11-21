@@ -1,3 +1,10 @@
+applications:
+- api_domain: blablabla.com
+  application_name: blablabla.com
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: https://1blablabla.com.wow
+  type: api
 aws:
 - account_id: '748560276420'
   account_name: Avichay
