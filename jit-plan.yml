@@ -35,3 +35,6 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Ensure your API is secure
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+  - name: Require MFA for SCM
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
