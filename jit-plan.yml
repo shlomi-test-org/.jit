@@ -8,8 +8,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: Ensure your API is secure
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Require Branch Protection for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
