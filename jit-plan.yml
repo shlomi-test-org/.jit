@@ -22,6 +22,9 @@ items:
   - name: Scan IaC for static misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Ensure IAM roles adhere to the least privilege principle
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
   - name: Require MFA for cloud providers
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
@@ -33,9 +36,3 @@ items:
   - name: Run a web application scanner
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Ensure IAM roles adhere to the least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
