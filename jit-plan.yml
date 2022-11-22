@@ -39,3 +39,5 @@ items:
   - name: Run a web application scanner
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+  - name: Ensure your API is secure
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
