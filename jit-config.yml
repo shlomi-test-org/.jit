@@ -1,11 +1,4 @@
 applications:
-- application_name: aaa
-  authentication_mode: non-authenticated
-  exclude_paths:
-  - https://platform.staging.com/logout
-  - ' https://api.staging.jit.io/tenant/delete'
-  target_url: https://platform.staging.jit.io
-  type: web
 - api_domain: api.staging.jit.io
   application_name: aaa
   authentication_mode: selenium
