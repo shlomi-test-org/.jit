@@ -1,17 +1,3 @@
-applications:
-- api_domain: blablabla.com
-  application_name: blablabla.com
-  authentication_mode: non-authenticated
-  exclude_paths: []
-  target_url: https://1blablabla.com.wow
-  type: api
-- application_name: https://platform.staging.jit.io
-  authentication_mode: non-authenticated
-  exclude_paths:
-  - https://platform.staging.com/logout
-  - ' https://api.staging.jit.io/tenant/delete'
-  target_url: https://platform.staging.jit.io
-  type: web
 aws:
 - account_id: '748560276420'
   account_name: Avichay
