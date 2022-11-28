@@ -35,3 +35,6 @@ items:
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Ensure your API is secure
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
