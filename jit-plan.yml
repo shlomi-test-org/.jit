@@ -10,9 +10,6 @@ tags: []
 items:
   - name: Ensure your API is secure
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
-  - name: Require Branch Protection for SCM
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan code for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -27,6 +24,9 @@ items:
   - name: Ensure IAM roles adhere to the least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
+  - name: Require MFA for cloud providers
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
   - name: Require MFA for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
@@ -38,6 +38,3 @@ items:
   - name: Run a web application scanner
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Require MFA for cloud providers
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
