@@ -30,3 +30,6 @@ items:
   - name: Require MFA for cloud providers
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
+  - name: Require Branch Protection for SCM
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
