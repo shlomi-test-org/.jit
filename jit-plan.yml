@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: cfae51ff-5726-4cf7-bb7f-ddf989d7190a
 author: Jit
 version: 0.1
 owners:
@@ -8,36 +9,27 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Require Branch Protection for SCM
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan code for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan container images
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan code dependencies for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan IaC for static misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Ensure IAM roles adhere to the least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
   - name: Require MFA for cloud providers
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-cloud-providers.yml@latest
   - name: Require MFA for SCM
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Run a web application scanner
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
