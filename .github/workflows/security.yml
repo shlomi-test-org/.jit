@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: bandit
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: gosec
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: trivy
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: dependency-check
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: npm-audit
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -95,7 +95,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: nancy
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -109,7 +109,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: kics
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -123,7 +123,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: remediation-pr
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -137,7 +137,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: gitleaks
-      uses: jitsecurity-controls/jit-github-action@v1.6
+      uses: jitsecurity-controls/jit-github-action@v1.7
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
