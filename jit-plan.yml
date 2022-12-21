@@ -27,6 +27,9 @@ items:
   - name: Ensure IAM roles adhere to the least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
+  - name: Verify that the users of your AWS accounts have enabled MFA
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Require MFA for SCM
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
@@ -35,6 +38,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Verify that the users of your AWS accounts have enabled MFA
+  - name: Scan your web application for vulnerabilities
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
