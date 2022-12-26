@@ -1,6 +1,6 @@
 applications:
 - api_domain: platform.staging.jit.io
-  application_name: aaaa
+  application_name: a
   authentication_mode: selenium
   exclude_paths: []
   login_page_url: https://platform.staging.jit.io/login
