@@ -19,9 +19,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan code dependencies for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Scan IaC for static misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Ensure IAM roles adhere to the least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
