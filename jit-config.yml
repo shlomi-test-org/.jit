@@ -10,19 +10,11 @@ applications:
   type: api
   username: ohav+testuserdev@jit.io
   username_css_selector: '[data-test-id=input-email]'
-- api_domain: api.staging.jit.io
-  application_name: https://platform.staging.jit.io
-  authentication_mode: selenium
-  exclude_paths:
-  - https://platform.staging.com/logout
-  - ' https://api.staging.jit.io/tenant/delete'
-  login_page_url: https://platform.staging.jit.io/login
-  password: encrypted$AQICAHiuvpvALuSdLnnTj5z4D+XYysHZmbLQ2xWihXPmivthFAF0nx7PAsIdCWkL0WCP+osEAAAAaDBmBgkqhkiG9w0BBwagWTBXAgEAMFIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQManP7fDNVf7RvNcYNAgEQgCWmCTDMPJ2ZhrzwLh9aH6PzCHEYcZBwkrNt7amy2y731qcF67ei
-  password_css_selector: '[data-test-id=input-password]'
-  target_url: https://platform.staging.jit.io
+- application_name: some-name-6
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: https://public-firing-range.appspot.com
   type: web
-  username: ohav+testuserdev@jit.io
-  username_css_selector: '[data-test-id=input-email]'
 aws:
 - account_id: '748560276420'
   account_name: Avichay
