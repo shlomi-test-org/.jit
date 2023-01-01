@@ -21,7 +21,18 @@ aws:
   regions:
   - us-east-1
   type: account
+plan_items:
+  item-web-app-scanner:
+    staging_env:
+      tags:
+      - 'deploy'
+      configuration:
+      - 'some-name-6'
+      trigger: 'deployment'
 github_branch_protection:
   organization:
     amount_of_required_reviews: 4
     required_status_checks: []
+deployment:
+  environments:
+  - deploy
