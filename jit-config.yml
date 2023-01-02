@@ -10,7 +10,7 @@ applications:
   type: api
   username: ohav+testuserdev@jit.io
   username_css_selector: '[data-test-id=input-email]'
-- application_name: some-name-10
+- application_name: some-name-11
   authentication_mode: non-authenticated
   exclude_paths: []
   target_url: https://public-firing-range.appspot.com
