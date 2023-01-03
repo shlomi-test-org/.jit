@@ -32,7 +32,7 @@ plan_items:
   item-web-app-scanner:
     staging_env:
       configuration:
-      - some-name-11
+      - some-name-12
       tags:
       - deploy
       trigger: deployment
