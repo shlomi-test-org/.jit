@@ -104,34 +104,6 @@ jobs:
         
         dispatch_type: workflow
 
-  iac-misconfig-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection'
-    runs-on: ubuntu-20.04
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v1.7
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:latest
-        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \$KICS_CONFIG_FILE_PATH --disable-secrets
-        security_control_output_file: /code/jit-report/results.json
-        dispatch_type: workflow
-
-  remediation-pr:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr'
-    runs-on: ubuntu-20.04
-    steps:
-    - name: remediation-pr
-      uses: jitsecurity-controls/jit-github-action@v1.7
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/open-remediation-pr-alpine:latest
-        security_control_args: --github-token ${{fromJSON(github.event.inputs.client_payload).payload.github_token}} --fix-pr-config ${{fromJSON(github.event.inputs.client_payload).payload.fix_pr_config}}
-        
-        dispatch_type: workflow
-
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection'
     runs-on: ubuntu-20.04
