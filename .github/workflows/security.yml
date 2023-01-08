@@ -156,5 +156,5 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:avichay
-        security_control_args: --github-token ${{fromJSON(github.event.inputs.client_payload).payload.github_token}} --path \${WORK_DIR:-.}
+        security_control_args: --path \${WORK_DIR:-.}
         dispatch_type: workflow
