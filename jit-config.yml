@@ -26,7 +26,7 @@ deployment:
   - deploy
 github_branch_protection:
   organization:
-    amount_of_required_reviews: 4
+    amount_of_required_reviews: 1
     required_status_checks: []
 plan_items:
   item-web-app-scanner:
