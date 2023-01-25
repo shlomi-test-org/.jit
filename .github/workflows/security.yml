@@ -29,7 +29,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -71,7 +71,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:main
         security_control_args: detect --config \$GITLEAKS_CONFIG_FILE_PATH --source \${WORK_DIR:-.} -v --report-format json --report-path \$REPORT_FILE --redact --no-git --exit-code 0
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
@@ -155,7 +155,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
