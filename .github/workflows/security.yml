@@ -71,7 +71,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:sc-13016-execution-service-entrypoint-fix-is-background
+        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:avichayJit-patch-1
         security_control_args: detect --config \$GITLEAKS_CONFIG_FILE_PATH --source \${WORK_DIR:-.} -v --report-format json --report-path \$REPORT_FILE --redact --no-git --exit-code 0
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
