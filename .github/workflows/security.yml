@@ -29,7 +29,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:sc-12982-enrichment-control-change-framework-detection
+        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:sc-12794-enrichment-control-add-support-of-2-new-languages
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
