@@ -113,7 +113,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-dependency-check-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-dependency-check-alpine:avichayJit-patch-1
         security_control_args: --scan \${WORK_DIR:-.} --enableExperimental --disableJar --disableRubygems --disableBundleAudit --disableCocoapodsAnalyzer --disableSwiftPackageManagerAnalyzer --disableSwiftPackageResolvedAnalyzer --disableAutoconf --disableCmake --disableComposer --disableCpan --disableNuspec --disableNugetconf --disableAssembly --disableGolangDep --disableGolangMod --disableNodeJS --disableYarnAudit --disableNodeAudit --format JSON --noupdate --out \$REPORT_FILE --log /code/error.txt
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
