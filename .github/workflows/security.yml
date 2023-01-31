@@ -15,7 +15,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
         security_control_args: --quiet config --severity HIGH,CRITICAL -f json --ignorefile /opt/.trivyignore \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -29,7 +29,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -43,7 +43,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \$KICS_CONFIG_FILE_PATH --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -71,7 +71,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:main
         security_control_args: detect --config \$GITLEAKS_CONFIG_FILE_PATH --source \${WORK_DIR:-.} -v --report-format json --report-path \$REPORT_FILE --redact --no-git --exit-code 0
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
@@ -85,7 +85,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-nancy-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-nancy-alpine:main
         security_control_args: 
         
         dispatch_type: workflow
@@ -99,7 +99,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:main
         security_control_args: audit --json --production
         
         dispatch_type: workflow
@@ -113,7 +113,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-dependency-check-alpine:avichayJit-patch-1
+        security_control: ghcr.io/jitsecurity-controls/control-dependency-check-alpine:main
         security_control_args: --scan \${WORK_DIR:-.} --enableExperimental --disableJar --disableRubygems --disableBundleAudit --disableCocoapodsAnalyzer --disableSwiftPackageManagerAnalyzer --disableSwiftPackageResolvedAnalyzer --disableAutoconf --disableCmake --disableComposer --disableCpan --disableNuspec --disableNugetconf --disableAssembly --disableGolangDep --disableGolangMod --disableNodeJS --disableYarnAudit --disableNodeAudit --format JSON --noupdate --out \$REPORT_FILE --log /code/error.txt
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
@@ -127,7 +127,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-gosec-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-gosec-alpine:main
         security_control_args: -fmt=json -severity=high \${WORK_DIR:-.}/...
         
         dispatch_type: workflow
@@ -141,7 +141,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
         security_control_args: --json --config=/semgrep-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -155,7 +155,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:avichayJit-patch-2
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
