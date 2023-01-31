@@ -155,7 +155,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:avichayJit-patch-2
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:ep-sc-12998-jit-entrypoint-fetch-the-findings-model-and
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
