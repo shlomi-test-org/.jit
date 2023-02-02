@@ -17,7 +17,6 @@ applications:
   type: web
 aws:
 - account_id: '748560276420'
-  account_name: Avichay
   regions:
   - us-east-1
   type: account
