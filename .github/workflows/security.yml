@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
        client_payload:
-          description: The Client payload
+          description: The Client  payload
           required: true
 jobs:
   docker-scan:
