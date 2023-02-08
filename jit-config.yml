@@ -1,0 +1,37 @@
+applications:
+- api_domain: api.staging.jit.io
+  application_name: test1
+  authentication_mode: selenium
+  exclude_paths: []
+  login_page_url: https://platform.staging.jit.io/login
+  password: encrypted$AQICAHiuvpvALuSdLnnTj5z4D+XYysHZmbLQ2xWihXPmivthFAH82rPCuvtZSglcs9LE8wwZAAAAaDBmBgkqhkiG9w0BBwagWTBXAgEAMFIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMo3Gb9tHPDMp4k2PtAgEQgCXXcFrflS1I0Usc0vA43If3CQpfhDFbF8tTpe/xr01nm5zwyj5t
+  password_css_selector: '[data-test-id=input-password]'
+  target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
+  type: api
+  username: ohav+testuserdev@jit.io
+  username_css_selector: '[data-test-id=input-email]'
+- application_name: some-name-12
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: https://public-firing-range.appspot.com
+  type: web
+aws:
+- account_id: '748560276420'
+  regions:
+  - us-east-1
+  type: account
+deployment:
+  environments:
+  - deploy
+github_branch_protection:
+  organization:
+    amount_of_required_reviews: 1
+    required_status_checks: []
+plan_items:
+  item-web-app-scanner:
+    staging_env:
+      configuration:
+      - some-name-12
+      tags:
+      - deploy
+      trigger: deployment
