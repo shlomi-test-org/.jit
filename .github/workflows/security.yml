@@ -36,8 +36,8 @@ jobs:
         
         dispatch_type: workflow
 
-  iac-misconfig-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection'
+  iac-misconfig-detection-cdk:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cdk'
     runs-on: ubuntu-20.04
     steps:
     - name: kics
@@ -46,7 +46,67 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/cdk-config.yaml --disable-secrets
+        security_control_output_file: /code/jit-report/results.json
+        dispatch_type: workflow
+
+  iac-misconfig-detection-cloudformation:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v1.8
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/cloudformation-config.yaml --disable-secrets
+        security_control_output_file: /code/jit-report/results.json
+        dispatch_type: workflow
+
+  iac-misconfig-detection-pulumi:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-pulumi'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v1.8
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/pulumi-config.yaml --disable-secrets
+        security_control_output_file: /code/jit-report/results.json
+        dispatch_type: workflow
+
+  iac-misconfig-detection-serverless:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-serverless'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v1.8
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/serverless-config.yaml --disable-secrets
+        security_control_output_file: /code/jit-report/results.json
+        dispatch_type: workflow
+
+  iac-misconfig-detection-terraform:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-terraform'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v1.8
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/terraform-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
