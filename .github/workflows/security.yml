@@ -6,21 +6,6 @@ on:
           description: The Client payload
           required: true
 jobs:
-  docker-scan:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan'
-    runs-on: ubuntu-20.04
-    steps:
-    - name: trivy
-      uses: jitsecurity-controls/jit-github-action@v1.8
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
-        security_control_args: --quiet config --severity HIGH,CRITICAL -f json --ignorefile /opt/.trivyignore \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich'
     runs-on: ubuntu-20.04
@@ -36,6 +21,21 @@ jobs:
         
         dispatch_type: workflow
 
+  iac-misconfig-detection:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v1.8
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \$KICS_CONFIG_FILE_PATH --disable-secrets
+        security_control_output_file: /code/jit-report/results.json
+        dispatch_type: workflow
+
   iac-misconfig-detection-cdk:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cdk'
     runs-on: ubuntu-20.04
@@ -46,7 +46,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/cdk-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -61,7 +61,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/cloudformation-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -76,7 +76,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/pulumi-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -91,7 +91,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/serverless-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -106,7 +106,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-13196-kics
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/terraform-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
