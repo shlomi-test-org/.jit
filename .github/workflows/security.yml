@@ -46,7 +46,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:spike1
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \$KICS_CONFIG_FILE_PATH --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -145,7 +145,7 @@ jobs:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java'
     runs-on: ubuntu-20.04
     steps:
-    - name: semgrep-alpine:sc-13200
+    - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v1.8
       with:
         docker_user: jit-bot
@@ -160,14 +160,14 @@ jobs:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-js'
     runs-on: ubuntu-20.04
     steps:
-    - name: semgrep-alpine:sc-13200
+    - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v1.8
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
         security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
-        security_control_args: --json --config=/semgrep-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
+        security_control_args: --json --config=/semgrep-ts-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
 
@@ -175,14 +175,14 @@ jobs:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-python'
     runs-on: ubuntu-20.04
     steps:
-    - name: semgrep-alpine:sc-13200
+    - name: bandit
       uses: jitsecurity-controls/jit-github-action@v1.8
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
-        security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
+        security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
 
@@ -190,7 +190,7 @@ jobs:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-scala'
     runs-on: ubuntu-20.04
     steps:
-    - name: semgrep-alpine:sc-13200
+    - name: semgrep
       uses: jitsecurity-controls/jit-github-action@v1.8
       with:
         docker_user: jit-bot
