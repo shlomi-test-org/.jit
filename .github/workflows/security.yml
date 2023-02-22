@@ -166,7 +166,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:main
+        security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:yardensade-patch-1
         security_control_args: audit --json --production
         
         dispatch_type: workflow
