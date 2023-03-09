@@ -46,7 +46,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:avichay-test
         security_control_args: scan -t CloudFormation -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/cloudformation-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -61,7 +61,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:avichay-test
         security_control_args: scan -t Pulumi -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/pulumi-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -76,7 +76,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:avichay-test
         security_control_args: scan -t ServerlessFW -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/serverless-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -91,7 +91,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:avichay-test
         security_control_args: scan -t Terraform -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/terraform-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
@@ -226,7 +226,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:avichay-test
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
