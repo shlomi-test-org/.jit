@@ -122,7 +122,7 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
 
   secret-detection2:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection'
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection2'
     runs-on: ubuntu-20.04
     steps:
     - name: gitleaks
