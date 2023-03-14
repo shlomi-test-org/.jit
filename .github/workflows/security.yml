@@ -6,21 +6,6 @@ on:
           description: The Client payload
           required: true
 jobs:
-  docker-scan:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan'
-    runs-on: ubuntu-20.04
-    steps:
-    - name: trivy
-      uses: jitsecurity-controls/jit-github-action@v2.0
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
-        security_control_args: --quiet config --severity HIGH,CRITICAL -f json --ignorefile /opt/.trivyignore \${WORK_DIR:-.}
-        
-        dispatch_type: workflow
-
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich'
     runs-on: ubuntu-20.04
@@ -31,7 +16,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:latest
+        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
@@ -120,6 +105,26 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-gitleaks-alpine:main
+        security_control_args: detect --config \$GITLEAKS_CONFIG_FILE_PATH --source \${WORK_DIR:-.} -v --report-format json --report-path \$REPORT_FILE --redact --no-git --exit-code 0
+        security_control_output_file: /tmp/report.json
+        dispatch_type: workflow
+
+  secret-detection2:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection2'
+    runs-on: ubuntu-20.04
+    steps:
+    - name: detect-secrets
+      uses: jitsecurity-controls/jit-github-action@v2.0
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
+        security_control: ghcr.io/jitsecurity-controls/control-detect-secrets-slim:main
+        security_control_args: scan \${WORK_DIR:-.}
+        security_control_output_file: /tmp/report.json
+        dispatch_type: workflow
 
   software-component-analysis:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis'
@@ -162,8 +167,8 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
         security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:main
-        security_control_args: audit --json --production
-        
+        security_control_args: 
+        security_control_output_file: /code/jit-report/enriched-audit-results.json
         dispatch_type: workflow
 
   static-code-analysis-go:
@@ -221,7 +226,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:avichay-test-2
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
