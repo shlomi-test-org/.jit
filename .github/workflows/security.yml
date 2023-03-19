@@ -6,8 +6,8 @@ on:
         description: The Client payload
         required: true
 
-variables:
-  payload: &payload ${{fromJSON(github.event.inputs.client_payload).payload}}
+env:
+  payload: ${{fromJSON(github.event.inputs.client_payload).payload}}
 
 jobs:
   docker-scan:
@@ -18,10 +18,10 @@ jobs:
         uses: jitsecurity-controls/jit-github-action@v2.0
         with:
           docker_user: jit-bot
-          docker_password: *payload.container_registry_token
+          docker_password: ${{env.payload}}.container_registry_token
 
           security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
-          security_control_args: *payload.container_registry_token 
+          security_control_args: ${{env.payload}}.container_registry_token
 
           dispatch_type: workflow
 
@@ -171,7 +171,7 @@ jobs:
           docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
 
           security_control: ghcr.io/jitsecurity-controls/control-nancy-alpine:main
-          security_control_args:  *payload.container_registry_token
+          security_control_args:  "*payload.container_registry_token"
 
           dispatch_type: workflow
 
@@ -186,7 +186,7 @@ jobs:
           docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
 
           security_control: ghcr.io/jitsecurity-controls/control-npm-audit-slim:main
-          security_control_args: *payload.container_registry_token
+          security_control_args: "test"
           security_control_output_file: /code/jit-report/enriched-audit-results.json
           dispatch_type: workflow
 
