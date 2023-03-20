@@ -6,6 +6,10 @@ on:
         description: The Client payload
         required: true
 
+env:
+  payload: ${{fromJSON(github.event.inputs.client_payload).payload}}
+  payload2: "super testt!!!!!!!!!!!!!!!!!!!!!"
+
 jobs:
   enrich:
       if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich'
