@@ -5,6 +5,10 @@ on:
        client_payload:
           description: The Client payload
           required: true
+env:
+  payload: ${{fromJSON(github.event.inputs.client_payload).payload}}
+  payload2: "super testt!!!!!!!!!!!!!!!!!!!!!"
+  
 jobs:
   docker-scan:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan'
