@@ -111,11 +111,6 @@ jobs:
         security_control_output_file: /opt/code/jit-report/results.json
         dispatch_type: workflow
 
-          security_control: ghcr.io/jitsecurity-controls/open-remediation-pr-alpine:main
-          security_control_args: --github-token ${{fromJSON(github.event.inputs.client_payload).payload.github_token}} --fix-pr-config ${{fromJSON(github.event.inputs.client_payload).payload.fix_pr_config}} --output-file \$REPORT_FILE
-          security_control_output_file: /opt/code/jit-report/results.json
-          dispatch_type: workflow
-
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection'
     runs-on: ubuntu-20.04
