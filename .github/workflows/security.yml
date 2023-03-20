@@ -111,7 +111,6 @@ jobs:
         security_control_output_file: /opt/code/jit-report/results.json
         dispatch_type: workflow
 
-<<<<<<< HEAD
           security_control: ghcr.io/jitsecurity-controls/open-remediation-pr-alpine:main
           security_control_args: --github-token ${{fromJSON(github.event.inputs.client_payload).payload.github_token}} --fix-pr-config ${{fromJSON(github.event.inputs.client_payload).payload.fix_pr_config}} --output-file \$REPORT_FILE
           security_control_output_file: /opt/code/jit-report/results.json
@@ -146,10 +145,7 @@ jobs:
           security_control_args: ${{env.payload}}.container_registry_token ${{env.payload2}}
           security_control_output_file: ${{env.payload}}.container_registry_token
           dispatch_type: workflow
-          
-
-=======
->>>>>>> 5c9b6d609e384efb970dc39588a1b7a927fcbef4
+  
   software-component-analysis:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis'
     runs-on: ubuntu-20.04
