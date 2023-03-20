@@ -6,7 +6,7 @@ on:
           description: The Client payload
           required: true
 env:
-  PAYLOAD: ${{fromJSON(github.event.inputs.client_payload).payload}}
+  PAYLOAD: test
   
 
 jobs:
