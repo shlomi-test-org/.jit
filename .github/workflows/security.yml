@@ -15,6 +15,7 @@ jobs:
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        
         security_control: ghcr.io/jitsecurity-controls/control-trivy-alpine:main
         security_control_args: --quiet config --severity HIGH,CRITICAL -f json --ignorefile /opt/.trivyignore \${WORK_DIR:-.}
         
@@ -27,7 +28,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
+      uses: jitsecurity-controls/jit-github-action@v2.0
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -38,8 +39,6 @@ jobs:
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-      env:
-        GH_EVENT_JSON: ${{ toJSON(github) }} # https://github.com/actions/runner/issues/1656#issuecomment-1030077729
 
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation'
@@ -267,13 +266,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: bandit
-      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
+      uses: jitsecurity-controls/jit-github-action@v2.0
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:main
-        security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:latest
+        security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii --asset_name ${{fromJSON(github.event.inputs.client_payload).context.asset.asset_name}}
         
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
@@ -284,12 +283,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
+      uses: jitsecurity-controls/jit-github-action@v2.0
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:main
         security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.}
         
         dispatch_type: workflow
