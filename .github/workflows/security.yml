@@ -8,7 +8,7 @@ on:
 jobs:
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich'
-    runs-on: ubuntu-20.04gitleaks
+    runs-on: ubuntu-20.04
     steps:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v2.0
