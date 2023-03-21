@@ -39,20 +39,3 @@ jobs:
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
-  secret-detection2:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection2'
-    runs-on: ubuntu-20.04
-    steps:
-    - name: detect-secrets
-      uses: jitsecurity-controls/jit-github-action@v2.0
-      with:
-        docker_user: jit-bot
-        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
-        
-        security_control: ghcr.io/jitsecurity-controls/control-detect-secrets-slim:main
-        security_control_args: scan \${WORK_DIR:-.}
-        security_control_output_file: /tmp/report.json
-        dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
