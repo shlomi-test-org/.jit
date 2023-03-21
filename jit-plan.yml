@@ -8,4 +8,5 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
