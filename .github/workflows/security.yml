@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v2.0
+      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -266,7 +266,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: bandit
-      uses: jitsecurity-controls/jit-github-action@v2.0
+      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -283,7 +283,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.0
+      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
