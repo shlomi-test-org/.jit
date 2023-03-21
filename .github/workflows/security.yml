@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v2.0
+      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -39,6 +39,9 @@ jobs:
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+
+      env:
+        GH_EVENT_JSON: ${{ toJSON(github) }} # https://github.com/actions/runner/issues/1656#issuecomment-1030077729 
 
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation'
@@ -187,7 +190,7 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
         security_control: ghcr.io/jitsecurity-controls/control-nancy-alpine:main
-        security_control_args: 
+        security_control_args: "some"
         
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
@@ -266,7 +269,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: bandit
-      uses: jitsecurity-controls/jit-github-action@v2.0
+      uses: jitsecurity-controls/jit-github-action@sc-14587-jit-github-action-add-support-for-new-client
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
