@@ -40,4 +40,4 @@ override:
         static-code-analysis-python:
           enabled: true
         static-code-analysis-python-semgrep:
-          enabled: true
+          enabled: false
