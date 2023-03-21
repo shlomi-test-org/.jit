@@ -1,7 +1,7 @@
-secret=thisisthemostsecrettextevercreated
-AWS_KEY_SECRET = ASD3FSA32121T523
-SECRET=1241SFD232
-PASSWORD=11234DFAS32!@!@
+secret="thisisthemostsecrettextevercreated"
+AWS_KEY_SECRET = "ASD3FSA32121T523"
+SECRET="1241SFD232"
+PASSWORD="11234DFAS32!@!@"
 
 a = """HI!!!
 anotherwone
