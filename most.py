@@ -6,6 +6,6 @@ PASSWORD="11234DFAS32!@!@"
 a = """HI!!!
 anotherwone !!!asdsadasd
 In The End it dosasdasden4t even matter645645
-I have trieddddd so hard ddbut thats so asfasfasd
+I have trieddddd so hard ddbut thats so asdasfasfasd
 asdsadbut in the End itsasdsad dosent eveASDasdAASDn mqweqwadwatttterrASDASDr5rr23423333rrr more code ... !!!!!"""
 
