@@ -46,6 +46,6 @@ override:
     sast:
       jobs:
         static-code-analysis-python:
-          enabled: false
+          enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
