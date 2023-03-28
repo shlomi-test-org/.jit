@@ -101,7 +101,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:sc-14973-entrypoint-add-support-for-using-the-new
+        security_control: ghcr.io/jitsecurity-controls/control-kics-alpine:main
         security_control_args: scan -t Terraform -p \${WORK_DIR:-.} -o \$REPORT_FILE -f json --config \/terraform-config.yaml --disable-secrets
         security_control_output_file: /code/jit-report/results.json
         dispatch_type: workflow
