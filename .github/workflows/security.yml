@@ -254,7 +254,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:Moshikol-patch-1-non-code-findings-support
+        security_control: ghcr.io/jitsecurity-controls/control-bandit-slim:not-hardened-Moshikol-patch-1-non-code-findings-support
         security_control_args: -r \${WORK_DIR:-.} -f json -q -lll -iii
         
         dispatch_type: workflow
