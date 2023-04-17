@@ -271,7 +271,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:latest
+        security_control: ghcr.io/jitsecurity-controls/control-semgrep-alpine:aaa
         security_control_args: --json --config=/semgrep-python-config.yml --metrics=off --severity=ERROR \${WORK_DIR:-.} --asset_name ${{fromJSON(github.event.inputs.client_payload).context.asset.asset_name }} --secret ${{fromJSON(github.event.inputs.client_payload).secrets.secret1}}
         
         dispatch_type: workflow
