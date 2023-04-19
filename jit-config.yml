@@ -1,3 +1,4 @@
+a: ${{jit_secrets.secret1}}
 applications:
 - api_domain: api.staging.jit.io
   application_name: ${{jit_secrets.secret1}}
