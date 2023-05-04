@@ -52,3 +52,15 @@ override:
           enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
+    branch-protection-github-checker:
+        jobs:
+          branch-protection-github-checker:
+            steps:
+              - name: Run Branch Protection checker
+                uses: ghcr.io/jitsecurity-controls/github-branch-protection:sc-16074-github-branch-protection
+    mfa-aws-checker:
+      jobs:
+        mfa-aws-checker:
+          steps:
+            - name: Run MFA checker
+              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
