@@ -41,9 +41,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
     sast:
@@ -52,17 +49,3 @@ override:
           enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
-override:
-  workflows:
-    sast:
-      jobs:
-        static-code-analysis-python:
-          enabled: true
-        static-code-analysis-python-semgrep:
-          enabled: true
-    aws-mfa-checker:
-        jobs:
-          aws-mfa-checker:
-            steps:
-              - name: Run Branch Protection checker
-                uses: ghcr.io/jitsecurity-controls/github-branch-protection:sc-16074-github-branch-protection
