@@ -49,9 +49,31 @@ override:
           enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
-    workflow-mfa-aws-checker:
-      jobs:
+      workflow-mfa-aws-checker:
+        jobs:
         mfa-aws-checker:
           steps:
             - name: Run MFA checker
               uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
+    workflow-mfa-aws-checker:
+      jobs:
+        mfa-aws-checker:
+          default: true
+          runner:
+            type: jit
+            setup:
+              auth_type: aws_iam_role
+          asset_type: aws_account
+          steps:
+            - name: Run MFA checker
+              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
+              with:
+                env:
+                  AWS_ACCESS_KEY_ID: ${{ context.auth.config.aws_access_key_id }}
+                  AWS_SECRET_ACCESS_KEY: ${{ context.auth.config.aws_secret_access_key }}
+                  AWS_SESSION_TOKEN: ${{ context.auth.config.aws_session_token }}
+                  AWS_REGION_NAME: ${{ context.auth.config.region_name }}
+              tags:
+                security_tool: AWS MFA Checker
+                links:
+                  github: https://github.com/jitsecurity-controls/jit-aws-mfa-control 
