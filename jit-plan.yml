@@ -43,7 +43,7 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
-    workflow-mfa-aws-checker:
+    mfa-aws-checker:
       jobs:
         mfa-aws-checker:
           default: true
