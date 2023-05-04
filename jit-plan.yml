@@ -45,4 +45,10 @@ override:
         static-code-analysis-python:
           enabled: true
         static-code-analysis-python-semgrep:
-          enabled: true
+          enabled: true    
+mfa-aws-checker:
+  jobs:
+    mfa-aws-checker:
+      steps:
+        - name: Run MFA checker
+          uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
