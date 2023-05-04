@@ -38,9 +38,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
     sast:
@@ -49,9 +46,3 @@ override:
           enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
-    mfa-aws-checker:
-      jobs:
-        mfa-aws-checker:
-          steps:
-            - name: Run MFA checker
-              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
