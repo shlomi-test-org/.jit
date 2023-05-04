@@ -49,7 +49,7 @@ override:
           enabled: true
         static-code-analysis-python-semgrep:
           enabled: true
-    workflow-mfa-aws-checker:
+    mfa-aws-checker:
       jobs:
         mfa-aws-checker:
           steps:
