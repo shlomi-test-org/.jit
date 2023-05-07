@@ -44,6 +44,9 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+  - name: Detect GitHub misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
 override:
   workflows:
     mfa-aws-checker:
