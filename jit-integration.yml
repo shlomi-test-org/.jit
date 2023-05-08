@@ -1,0 +1,7 @@
+gcp:
+ <integration_id>:
+  type: gcp_account
+  name: "<account name>"
+  auth:
+   api_token: "${{ jit_secrets.gcp-user-account }}"
+  project_id: <GCP project id>
