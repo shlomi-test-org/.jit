@@ -5,3 +5,4 @@ gcp:
     auth:
      api_token: ${{ secrets.gcp_credentials }}
     project_id: angular-stacker-382507
+    
