@@ -50,6 +50,9 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
+  - name: Detect GitHub misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
 override:
   workflows:
     mfa-aws-checker:
