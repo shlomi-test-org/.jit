@@ -39,6 +39,9 @@ items:
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
@@ -52,7 +55,7 @@ items:
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-aws.yml@latest
 override:
   workflows:
     mfa-aws-checker:
