@@ -63,7 +63,7 @@ override:
         mfa-aws-checker:
           steps:
             - name: Run MFA checker
-              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
+              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
     sast:
       jobs:
         static-code-analysis-python:
