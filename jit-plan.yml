@@ -53,9 +53,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
-  - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
     mfa-aws-checker:
@@ -63,7 +60,7 @@ override:
         mfa-aws-checker:
           steps:
             - name: Run MFA checker
-              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
+              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:main
     sast:
       jobs:
         static-code-analysis-python:
