@@ -6,7 +6,8 @@ applications:
   exclude_paths: []
   target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
   type: api
-- application_name: some-name-12
+- api_domain: public-firing-range.appspot.com
+  application_name: some-name-12
   authentication_mode: non-authenticated
   exclude_paths: []
   target_url: https://public-firing-range.appspot.com
