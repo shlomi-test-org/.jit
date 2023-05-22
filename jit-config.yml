@@ -1,16 +1,11 @@
 a: ${{jit_secrets.secret1}}
 applications:
 - api_domain: api.staging.jit.io
-  application_name: ${{jit_secrets.secret1}}
-  authentication_mode: selenium
+  application_name: kkk
+  authentication_mode: non-authenticated
   exclude_paths: []
-  login_page_url: https://platform.staging.jit.io/login
-  password: encrypted$AQICAHiuvpvALuSdLnnTj5z4D+XYysHZmbLQ2xWihXPmivthFAH82rPCuvtZSglcs9LE8wwZAAAAaDBmBgkqhkiG9w0BBwagWTBXAgEAMFIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMo3Gb9tHPDMp4k2PtAgEQgCXXcFrflS1I0Usc0vA43If3CQpfhDFbF8tTpe/xr01nm5zwyj5t
-  password_css_selector: '[data-test-id=input-password]'
   target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
   type: api
-  username: ohav+testuserdev@jit.io
-  username_css_selector: '[data-test-id=input-email]'
 - application_name: some-name-12
   authentication_mode: non-authenticated
   exclude_paths: []
