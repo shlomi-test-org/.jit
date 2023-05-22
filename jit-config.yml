@@ -1,7 +1,7 @@
 a: ${{jit_secrets.secret1}}
 applications:
 - api_domain: api.staging.jit.io
-  application_name: kkk
+  application_name: ${{jit_secrets.secret1}}
   authentication_mode: non-authenticated
   exclude_paths: []
   target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
