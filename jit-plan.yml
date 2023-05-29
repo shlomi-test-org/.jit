@@ -62,6 +62,15 @@ override:
             - name: Run MFA checker
               uses: >-
                 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
+    runtime-misconfiguration-detection:
+      default-jobs: disabled
+      jobs:
+        runtime-misconfig-detection-azure:
+          enabled: true
+          steps:
+            - name: Run Prowler For Azure
+              uses: >-
+                899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-sc-16944-prowler-3-duplicate-findings
     sast:
       jobs:
         static-code-analysis-python:
