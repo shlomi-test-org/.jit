@@ -21,6 +21,9 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+  - name: Detect GitHub misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
@@ -47,12 +50,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
-  - name: Detect GitHub misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
 override:
   workflows:
     mfa-aws-checker:
@@ -62,15 +59,6 @@ override:
             - name: Run MFA checker
               uses: >-
                 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
-    runtime-misconfiguration-detection:
-      default-jobs: disabled
-      jobs:
-        runtime-misconfig-detection-aws:
-          enabled: true
-          steps:
-            - name: Run Prowler For AWS
-              uses: >-
-                899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-sc-16944-prowler-3-duplicate-findings
     sast:
       jobs:
         static-code-analysis-python:
