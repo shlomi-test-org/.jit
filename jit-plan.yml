@@ -41,9 +41,6 @@ items:
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-aws.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
