@@ -68,6 +68,15 @@ override:
             - name: Run Prowler For AWS
               uses: >-
                 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
+    runtime-misconfiguration-detection-azure:
+      default-jobs: disabled
+      jobs:
+        runtime-misconfig-detection-azure:
+          enabled: true
+          steps:
+            - name: Run Prowler For Azure
+              uses: >-
+                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     sast:
       jobs:
         static-code-analysis-python:
