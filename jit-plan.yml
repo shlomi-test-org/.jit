@@ -47,9 +47,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
 override:
   workflows:
     mfa-aws-checker:
@@ -66,15 +63,6 @@ override:
           enabled: true
           steps:
             - name: Run Prowler For AWS
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
-    runtime-misconfiguration-detection-azure:
-      default-jobs: disabled
-      jobs:
-        runtime-misconfig-detection-azure:
-          enabled: true
-          steps:
-            - name: Run Prowler For Azure
               uses: >-
                 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     sast:
