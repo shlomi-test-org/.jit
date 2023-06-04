@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v2.2
+      uses: jitsecurity-controls/jit-github-action@sc-17187-jit-github-actions-add-option-to-direct-the
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: kics
-      uses: jitsecurity-controls/jit-github-action@v2.2
+      uses: jitsecurity-controls/jit-github-action@sc-17187-jit-github-actions-add-option-to-direct-the
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
