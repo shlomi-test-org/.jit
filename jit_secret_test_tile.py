@@ -1,2 +1,2 @@
-MY_VARIABLE = "Hello World"
+MY_VARIABLE = "Hellddddo World"
 
