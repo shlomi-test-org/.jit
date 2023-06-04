@@ -33,7 +33,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
+        security_control: 121169888995.dkr.ecr.us-east-1.amazonaws.com/control-enrichment-slim:test-enrichment-failure
         security_control_args: --path \${WORK_DIR:-.}
         
         dispatch_type: workflow
