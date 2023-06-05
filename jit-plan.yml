@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: b66bdba9-293f-4a2a-8f00-f567afe6acd9
 author: Jit
 version: 0.1
 owners:
@@ -11,72 +12,57 @@ items:
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your Dockerfiles for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Ensure IAM roles adhere to the least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-least-privileged-iam.yml@latest
   - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Verify that MFA for your GitHub organization is enabled
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-aws.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-aws.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
 override:
   workflows:
     mfa-aws-checker:
       jobs:
         mfa-aws-checker:
           steps:
-            - name: Run MFA checker
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
+          - name: Run MFA checker
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:interpolate-in-control
     runtime-misconfiguration-detection:
       default-jobs: disabled
       jobs:
         runtime-misconfig-detection-aws:
           enabled: true
           steps:
-            - name: Run Prowler For AWS
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
+          - name: Run Prowler For AWS
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     runtime-misconfiguration-detection-azure:
       default-jobs: disabled
       jobs:
         runtime-misconfig-detection-azure:
           enabled: true
           steps:
-            - name: Run Prowler For Azure
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
+          - name: Run Prowler For Azure
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     sast:
       jobs:
         static-code-analysis-python:
