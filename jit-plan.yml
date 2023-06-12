@@ -7,10 +7,7 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items:
-  - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+items: []
 override:
   workflows:
     mfa-aws-checker:
