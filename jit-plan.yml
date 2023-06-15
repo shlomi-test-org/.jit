@@ -42,7 +42,7 @@ override:
         github-misconfiguration:
           steps:
             - name: Run Legitify
-              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/control-legitify-alpine:latest
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/control-legitify-alpine:sc-17473-verify-new-jit-event-works-in-handle-jit
     runtime-misconfiguration-detection:
       default-jobs: disabled
       jobs:
