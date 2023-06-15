@@ -8,6 +8,9 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
@@ -16,9 +19,9 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (Azure)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
+  - name: Verify that the users of your AWS accounts have enabled MFA
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
     mfa-aws-checker:
