@@ -33,7 +33,7 @@ override:
           steps:
             - name: Run MFA checker
               uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:not-hardened-main
+                121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:latest
     runtime-misconfiguration-detection:
       default-jobs: disabled
       jobs:
