@@ -15,4 +15,5 @@ resource_management:  # (tagging/exclude)
           - name: asset-name-to-exclude 
       Plan-item-slug2:
         resources:
-          - name: []
+          - name: asset-name-to-exclude 
+            type: aws_account
