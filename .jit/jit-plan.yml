@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: 3bbf1ade-c87d-4032-ae54-be4f67a4f1e6
 author: Jit
 version: 0.1
 owners:
@@ -9,25 +10,19 @@ references:
 tags: []
 items:
   - name: Verify that Github Branch Protection is properly configured
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
 override:
@@ -36,33 +31,30 @@ override:
       jobs:
         github-misconfiguration:
           steps:
-            - name: Run Legitify
-              uses: >-
-                899025839375.dkr.ecr.us-east-1.amazonaws.com/control-legitify-alpine:sc-17473-verify-new-jit-event-works-in-handle-jit
+          - name: Run Legitify
+            uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/control-legitify-alpine:sc-17473-verify-new-jit-event-works-in-handle-jit
     mfa-aws-checker:
       jobs:
         mfa-aws-checker:
           steps:
-            - name: Run MFA checker
-              uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:latest
+          - name: Run MFA checker
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/aws-mfa:latest
     runtime-misconfiguration-detection:
       default-jobs: disabled
       jobs:
         runtime-misconfig-detection-aws:
           enabled: true
           steps:
-            - name: Run Prowler For AWS
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
+          - name: Run Prowler For AWS
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     runtime-misconfiguration-detection-azure:
       default-jobs: disabled
       jobs:
         runtime-misconfig-detection-azure:
           enabled: true
           steps:
-            - name: Run Prowler For Azure
-              uses: >-
-                121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
+          - name: Run Prowler For Azure
+            uses: 121169888995.dkr.ecr.us-east-1.amazonaws.com/prowler:not-hardened-no-dups
     sast:
       jobs:
         static-code-analysis-python:
