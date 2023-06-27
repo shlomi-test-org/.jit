@@ -13,8 +13,8 @@ resource_management:  # (tagging/exclude)
       plan-item-slug:
         resources:
           - name: asset-name-to-exclude 
-        Plan-item-slug2:
-          resources:
-            - name: asset-name-to-exclude 
-            type: aws_acccount
+      Plan-item-slug2:
+        resources:
+          - name: asset-name-to-exclude 
+          type: aws_acccount
 
