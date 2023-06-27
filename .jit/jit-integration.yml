@@ -8,6 +8,7 @@ gcp:
 azure:
   test-integration-prowler-azure:
     type: azure_account
+    
     name: azure-test-prowler
     auth:
       client_id: "${{ jit_secrets.azure_client_id }}"
