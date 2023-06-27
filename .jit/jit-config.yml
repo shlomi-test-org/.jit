@@ -17,3 +17,4 @@ resource_management:  # (tagging/exclude)
         resources:
           - name: asset-name-to-exclude 
             type: aws_account
+          - name: asset_slkjalfasljfajslkljkqa
