@@ -16,4 +16,3 @@ resource_management:  # (tagging/exclude)
       Plan-item-slug2:
         resources:
           - name: []
-
