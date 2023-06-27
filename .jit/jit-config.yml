@@ -9,9 +9,12 @@ github_branch_protection:
     required_status_checks: []
 resource_management:  # (tagging/exclude)
   exclude:
-    plan-item-slug:
-      - name: asset-name-to-exclude 
-    Plan-item-slug2:
-      - name: asset-name-to-exclude 
-        type: aws_acccount
+    plan_items:
+      plan-item-slug:
+        resources:
+          - name: asset-name-to-exclude 
+        Plan-item-slug2:
+          resources:
+            - name: asset-name-to-exclude 
+            type: aws_acccount
 
