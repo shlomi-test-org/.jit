@@ -7,7 +7,7 @@ github_branch_protection:
   organization:
     amount_of_required_reviews: 3
     required_status_checks: []
-resource-management:  # (tagging/exclude)
+resource_management:  # (tagging/exclude)
   exclude:
     plan-item-slug:
       - name: asset-name-to-exclude 
