@@ -22,7 +22,6 @@ jobs:
 
         
         dispatch_type: workflow
-        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
 
   api-security-detection-gXGsR:
