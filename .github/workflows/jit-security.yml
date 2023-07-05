@@ -14,10 +14,6 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: get secrets
-      run: |
-        kaki=${{ inputs.secrets }}
-        echo $kaki
     - name: 
       uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
@@ -25,10 +21,10 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
         security_control: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
-        security_control_args: kaki
+        security_control_args: ${{ github.event.inputs.secrets }}
         
         dispatch_type: workflow
-        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+        runner_setup: ${{toJSON(fromJSONZAP_PASSWORD ${{ secrets.ZAP_PASSWORD }}(github.event.inputs.client_payload).context.job.runner.setup)}}
 
   api-security-detection-gXGsR:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'api-security-detection-gXGsR'
