@@ -15,7 +15,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: get secrets
-      run: echo ${{ inputs.secrets }}
+      run: echo ${{ secrets.ZAP_PASSWORD }}
     - name: 
       uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
