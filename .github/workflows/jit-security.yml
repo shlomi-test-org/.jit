@@ -14,17 +14,13 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: Use Secrets
-      run: |
-        echo ${{ github.event.inputs.secrets }}
-    - name: 
       uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
         security_control: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
-        security_control_args: ${{ github.event.inputs.secrets }}
+        security_control_args: ZAP_PASSWORD ${{ secrets.ZAP_PASSWORD }}
         
         dispatch_type: workflow
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
