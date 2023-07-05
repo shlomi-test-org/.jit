@@ -20,7 +20,7 @@ jobs:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         
-        security_control: registry.jit.io/zap:latest
+        security_control: registry.jit.io/zap:runner
         security_control_args: ZAP_PASSWORD ${{ secrets.ZAP_PASSWORD }}
         
         dispatch_type: workflow
