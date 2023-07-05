@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
+    - name: Use Secrets
+      run: |
+        echo ${{ github.event.inputs.secrets }}
     - name: 
       uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
