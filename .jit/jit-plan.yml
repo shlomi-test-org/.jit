@@ -35,4 +35,17 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+override:
+  workflows:
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            type: github_actions
+            setup:
+              checkout: false
+          steps:
+            - with:
+                env:
+                  PASSWORD: ${{ secrets.ZAP_PASSWORD }}
 
