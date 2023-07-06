@@ -14,6 +14,7 @@ jobs:
     steps:
     - name:
       uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
+      secrets: inherit
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
@@ -23,6 +24,7 @@ jobs:
         
         dispatch_type: workflow
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+      
 
   api-security-detection-gXGsR:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'api-security-detection-gXGsR'
