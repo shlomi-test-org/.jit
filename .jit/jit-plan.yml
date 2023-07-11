@@ -8,12 +8,11 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Verify that Github Branch Protection is properly configured
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
@@ -33,20 +32,14 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
 override:
   workflows:
     api-security:
       jobs:
         api-security-detection:
-          runner:
-            type: github_actions
-            setup:
-              checkout: false
           steps:
             - name: Run ZAP
-              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
-              with:
+              params:
                 env:
                   PASSWORD: ${{ secrets.ZAP_PASSWORD }}
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
