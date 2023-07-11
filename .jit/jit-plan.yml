@@ -46,6 +46,7 @@ override:
               checkout: false
           steps:
             - name: Run ZAP
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
               with:
                 env:
                   PASSWORD: ${{ secrets.ZAP_PASSWORD }}
