@@ -38,12 +38,12 @@ items:
 override:
   workflows:
     api-security:
-      runner:
-        type: github_actions
-        setup:
-          checkout: false
       jobs:
         api-security-detection:
+          runner:
+            type: github_actions
+            setup:
+              checkout: false
           steps:
             - name: Run ZAP
               with:
