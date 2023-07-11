@@ -38,11 +38,15 @@ items:
 override:
   workflows:
     api-security:
+      runner:
+        type: github_actions
+        setup:
+          checkout: false
       jobs:
         api-security-detection:
           steps:
             - name: Run ZAP
-              params:
+              with:
                 env:
                   PASSWORD: ${{ secrets.ZAP_PASSWORD }}
               uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
