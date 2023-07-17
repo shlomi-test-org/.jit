@@ -67,7 +67,7 @@ jobs:
     - name: create env string
       id: env_string_step
       run: |
-        secret="ZAP_PASSWORD"
+        secret="${{ fromJSON(github.event.inputs.client_payload).payload.control_env_vars }}"
         value="$(jq -r --arg key "$secret" '.[$key]' <<< "$SECRETS" | sed 's|.|& |g')"
         echo "env_string=$value" >> $GITHUB_OUTPUT
     - name: enrichment
