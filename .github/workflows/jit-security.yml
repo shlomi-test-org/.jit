@@ -77,7 +77,7 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
-        asdasdasd: ${{ env.SECRETS.${{ fromJSON(github.event.inputs.client_payload).payload.control_env_vars }} }}
+        asdasdasd: ${{ env.SECRETS.{fromJSON(github.event.inputs.client_payload).payload.control_env_vars} }}
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
