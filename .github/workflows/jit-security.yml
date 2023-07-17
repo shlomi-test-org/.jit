@@ -62,8 +62,6 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       SECRETS: '${{ toJson(secrets) }}'
-    outputs:
-      aaa: ${{ steps.env_string_step.outputs.env_string_step }}
     timeout-minutes: 20
     steps:
     - name: create env string
@@ -71,7 +69,8 @@ jobs:
       run: |
         secret="${{ fromJSON(github.event.inputs.client_payload).payload.control_env_vars }}"
         value="$(jq -r --arg key "$secret" '.[$key]' <<< "$SECRETS" | sed 's|.|& |g')"
-        echo "::set-output name=env_string_step::$value"
+        echo "::add-mask::$value"
+        echo "env_string=$value" >> "$GITHUB_OUTPUT"
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v2.5
       with:
@@ -79,7 +78,7 @@ jobs:
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         security_control: ghcr.io/jitsecurity-controls/control-enrichment-slim:main
         security_control_args: --path \${WORK_DIR:-.}
-        asdasdasd: ${{ steps.env_string_step.outputs.env_string_step }}
+        asdasdasd: ${{ steps.env_string_step.outputs.env_string }}
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
