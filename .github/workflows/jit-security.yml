@@ -68,7 +68,7 @@ jobs:
       id: env_string_step
       run: |
         secret="ZAP_PASSWORD"
-        value="$(jq -r --arg key "$secret" '.[$key]' <<< "$SECRETS"
+        value="$(jq -r --arg key "$secret" '.[$key]' <<< "$SECRETS")"
         echo "env_string=$value" >> $GITHUB_OUTPUT
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v2.5
