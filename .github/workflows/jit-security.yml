@@ -6,7 +6,8 @@ on:
           description: The Client payload
           required: true
 jobs:
-  api-security-detection-workflow-api-security:
+
+  api-security-detection-workflow-api-security7:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'api-security-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-api-security'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
