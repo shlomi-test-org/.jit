@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          secrets = ${{ toJson(secrets) }}
+          secretss = ${{ toJson(secrets) }}
           IFS=',' read -ra string_array <<< ${{ github.event.inputs.my_secrets }}
 
           for secret in "${string_array[@]}"; do
-            value="$(jq -r --arg key "$secret" '.[$key]' <<< "$secrets" | sed 's|.|& |g')"
+            value="$(jq -r --arg key "$secret" '.[$key]' <<< "$secretss" | sed 's|.|& |g')"
             echo "$secret: $value"
           done
