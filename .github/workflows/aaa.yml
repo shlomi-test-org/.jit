@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - run: |
-          secretss = ${{ toJson(secrets) }}
+          secretss=${{ toJson(secrets) }}
           IFS=',' read -ra string_array <<< ${{ github.event.inputs.my_secrets }}
 
           for secret in "${string_array[@]}"; do
