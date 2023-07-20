@@ -56,4 +56,5 @@ override:
             uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
             with:
               env:
+                args: 1 2 3
                 PASSWORD: ${{ secrets.ZAP_PASSWORD }}
