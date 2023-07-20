@@ -94,12 +94,11 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: gitleaks
-      uses: jitsecurity-controls/jit-github-action@v2.5
+      uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
         security_control: registry.jit.io/control-gitleaks-alpine:ep-sc-18334-entrypoint-support-new-flow
-        security_control_args: --config \$GITLEAKS_CONFIG_FILE_PATH
         security_control_output_file: /tmp/report.json
         dispatch_type: workflow
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
@@ -240,7 +239,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@v2.5
+      uses: jitsecurity-controls/jit-github-action@avichayJit-patch-1
       with:
         docker_user: jit-bot
         docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
