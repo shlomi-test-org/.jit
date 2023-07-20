@@ -58,3 +58,12 @@ override:
               args: 1 2 3 4 5 6 7 8
               env:
                 PASSWORD: ${{ secrets.ZAP_PASSWORD }}
+    secret-detection:
+      jobs:
+        secret-detection:
+          steps:
+            - name: Run Gitleaks
+              uses: registry.jit.io/control-gitleaks-alpine:not-hardened-ep-sc-18334-entrypoint-support-new-flow
+              with:
+                args: detect --config $GITLEAKS_CONFIG_FILE_PATH --source ${WORK_DIR:-.} -v --report-format json --report-path $REPORT_FILE --redact --no-git --exit-code 0
+                output_file: /tmp/report.json
