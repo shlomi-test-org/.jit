@@ -51,13 +51,13 @@ override:
         runtime-misconfig-detection-aws:
           steps:
             - name: Run Prowler For AWS
-              uses: registry.jit.io/prowler:sc-18334-entrypoint-support-new-flow
+              uses: registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
           steps:
             - name: Run Prowler
-              uses: registry.jit.io/prowler:sc-18334-entrypoint-support-new-flow
+              uses: registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
     github-misconfiguration:
       jobs:
         github-misconfiguration:
