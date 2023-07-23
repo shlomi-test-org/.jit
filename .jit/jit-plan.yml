@@ -1,6 +1,5 @@
 name: My plan
 level: beginner
-update_id: 5103eb4e-ab74-4de7-a60b-56c1305e5360
 author: Jit
 version: 0.1
 owners:
@@ -12,58 +11,72 @@ items:
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Verify that Github Branch Protection is properly configured
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations (GCP)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
 override:
   workflows:
     api-security:
       jobs:
         api-security-detection:
           runner:
-            type: github_actions
             setup:
               checkout: false
+            type: github_actions
           steps:
-          - name: Run ZAP
-            uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
-            with:
-              env:
-                PASSWORD: ${{ secrets.ZAP_PASSWORD }}
+            - name: Run ZAP
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
+              with:
+                env:
+                  PASSWORD: ${{ secrets.ZAP_PASSWORD }}
     api-security-deployment:
       jobs:
         api-security-detection:
           runner:
-            type: github_actions
             setup:
               checkout: false
+            type: github_actions
           steps:
-          - name: Run ZAP
-            uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
-            with:
-              args: 1 2 3 4 5 6 7 8
-              env:
-                PASSWORD: ${{ secrets.ZAP_PASSWORD }}
+            - name: Run ZAP
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/zap:latest
+              with:
+                args: 1 2 3 4 5 6 7 8
+                env:
+                  PASSWORD: ${{ secrets.ZAP_PASSWORD }}
     secret-detection:
       jobs:
         secret-detection:
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:not-hardened-ep-sc-18334-entrypoint-support-new-flow
+              uses: >-
+                registry.jit.io/control-gitleaks-alpine:not-hardened-ep-sc-18334-entrypoint-support-new-flow
               with:
-                args: detect --config $GITLEAKS_CONFIG_FILE_PATH --source ${WORK_DIR:-.} -v --report-format json --report-path $REPORT_FILE --redact --no-git --exit-code 0
+                args: >-
+                  detect --config $GITLEAKS_CONFIG_FILE_PATH --source
+                  ${WORK_DIR:-.} -v --report-format json --report-path
+                  $REPORT_FILE --redact --no-git --exit-code 0
                 output_file: /tmp/report.json
