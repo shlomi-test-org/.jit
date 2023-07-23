@@ -45,4 +45,4 @@ override:
         static-code-analysis-python-semgrep:
           steps:
             - name: Run semgrep python
-              uses: registry.jit.io/control-semgrep-alpine:not-hardened-ep-sc-18334-entrypoint-support-new-flow
+              uses: registry.jit.io/control-semgrep-alpine:not-hardened-sc-18334-entrypoint-support-new-flow
