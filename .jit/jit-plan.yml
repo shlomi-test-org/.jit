@@ -31,13 +31,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
 override:
   workflows:
     github-misconfiguration:
@@ -61,10 +54,3 @@ override:
             - name: Run Prowler
               uses: >-
                 registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
-    sast:
-      jobs:
-        static-code-analysis-python-semgrep:
-          steps:
-            - name: Run semgrep python
-              uses: >-
-                registry.jit.io/control-semgrep-alpine:not-hardened-sc-18334-entrypoint-support-new-flow
