@@ -36,6 +36,21 @@ jobs:
         context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
+  github-misconfiguration:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'github-misconfiguration' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-github-misconfiguration'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+    steps:
+    - name: legitify-alpine:sc-18334-entrypoint-support-new
+      uses: jitsecurity-controls/jit-github-action@v3.0.1
+      with:
+        docker_user: jit-bot
+        docker_password: ${{fromJSON(github.event.inputs.client_payload).payload.container_registry_token}}
+        security_control: registry.jit.io/control-legitify-alpine:sc-18334-entrypoint-support-new-flow
+        dispatch_type: workflow
+        context: ${{toJSON(fromJSON(github.event.inputs.client_payload).context)}}
+        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+        
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
     runs-on: ubuntu-20.04
