@@ -42,11 +42,11 @@ override:
   workflows:
     github-misconfiguration:
       jobs:
-        runner:
-          type: github_actions
-          setup:
-            checkout: false
         github-misconfiguration:
+          runner:
+            type: github_actions
+            setup:
+              checkout: false
           steps:
             - name: Run Legitify
               uses: >-
