@@ -42,6 +42,10 @@ override:
   workflows:
     github-misconfiguration:
       jobs:
+        runner:
+          type: github_actions
+          setup:
+            checkout: false
         github-misconfiguration:
           steps:
             - name: Run Legitify
@@ -50,10 +54,6 @@ override:
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
-          runner:
-            type: github_actions
-            setup:
-              checkout: false
           steps:
             - name: Run Prowler For AWS
               uses: >-
