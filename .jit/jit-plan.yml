@@ -50,12 +50,12 @@ override:
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
+          runner:
+            type: github_actions
+            setup:
+              checkout: false
           steps:
             - name: Run Prowler For AWS
-              runner:
-                type: github_actions
-                setup:
-                  checkout: false
               uses: >-
                 registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
     runtime-misconfiguration-detection-gcp:
