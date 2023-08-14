@@ -35,9 +35,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
 override:
   workflows:
     github-misconfiguration:
@@ -51,21 +48,21 @@ override:
             - name: Run Legitify
               uses: >-
                 registry.jit.io/control-legitify-alpine:sc-18334-entrypoint-support-new-flow
-        runtime-misconfiguration-detection:
-          jobs:
-            runtime-misconfig-detection-aws:
-              runner:
-                setup:
-                  checkout: false
-                type: jit
-              steps:
-                - name: Run Prowler For AWS
-                  uses: >-
-                    registry.jit.io/prowler:sc-18923-allow-prowler-to-get-aws-regions-from-integration
-       runtime-misconfiguration-detection-gcp:
-          jobs:
-            runtime-misconfig-detection-gcp:
-              steps:
-                - name: Run Prowler
-                  uses: >-
-                    registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
+    runtime-misconfiguration-detection:
+      jobs:
+        runtime-misconfig-detection-aws:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run Prowler For AWS
+              uses: >-
+                registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
+    runtime-misconfiguration-detection-gcp:
+      jobs:
+        runtime-misconfig-detection-gcp:
+          steps:
+            - name: Run Prowler
+              uses: >-
+                registry.jit.io/prowler:not-hardened-sc-18334-entrypoint-support-new-flow
