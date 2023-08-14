@@ -57,7 +57,7 @@ override:
               runner:
                 setup:
                   checkout: false
-                type: github_actions
+                type: jit
               steps:
                 - name: Run Prowler For AWS
                   uses: >-
