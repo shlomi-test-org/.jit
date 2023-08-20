@@ -49,7 +49,7 @@ override:
             type: github_actions
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:latest
+              uses: registry.jit.io/zap:main
     github-misconfiguration:
       jobs:
         github-misconfiguration:
