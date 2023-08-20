@@ -45,7 +45,7 @@ override:
         api-security-detection:
           runner:
             setup:
-              checkout: true
+              checkout: false
             type: github_actions
     github-misconfiguration:
       jobs:
