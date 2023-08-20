@@ -40,6 +40,13 @@ items:
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
 override:
   workflows:
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            setup:
+              checkout: true
+            type: github_actions
     github-misconfiguration:
       jobs:
         github-misconfiguration:
