@@ -19,7 +19,7 @@ jobs:
     - name: 
       uses: jitsecurity-controls/jit-github-action@v4.0.0
       with:
-        security_control: registry.jit.io/zap:latest
+        security_control: registry.jit.io/zap:main
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
   docker-scan:
