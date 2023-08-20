@@ -30,7 +30,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v4.0.0
       with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: registry.jit.io/control-enrichment-slim:not-hardened-main
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
   github-misconfiguration:
