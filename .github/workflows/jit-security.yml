@@ -54,6 +54,7 @@ jobs:
       with:
         security_control: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+        inline_environment: -e GITHUB_TOKEN="${{ secrets.LEGITIFY_SECRET }}"
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
