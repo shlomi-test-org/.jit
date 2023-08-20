@@ -53,6 +53,9 @@ override:
           steps:
           - name: Run Legitify
             uses: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+            with:
+              env:
+                GITHUB_TOKEN: ${{ secrets.LEGITIFY_SECRET }}
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
