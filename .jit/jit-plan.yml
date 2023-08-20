@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: 8c688a19-1463-4ba1-b398-eac03dbf3e0f
 author: Jit
 version: 0.1
 owners:
@@ -8,36 +9,28 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Verify that Github Branch Protection is properly configured
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
 override:
   workflows:
     api-security:
@@ -48,8 +41,8 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:main
+          - name: Run ZAP
+            uses: registry.jit.io/zap:main
     github-misconfiguration:
       jobs:
         github-misconfiguration:
@@ -58,9 +51,8 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run Legitify
-              uses: >-
-                registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+          - name: Run Legitify
+            uses: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
@@ -69,13 +61,11 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run Prowler For AWS
-              uses: >-
-                registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+          - name: Run Prowler For AWS
+            uses: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
           steps:
-            - name: Run Prowler
-              uses: >-
-                registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+          - name: Run Prowler
+            uses: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
