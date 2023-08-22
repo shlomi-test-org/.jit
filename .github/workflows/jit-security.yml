@@ -74,10 +74,10 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: hardened-sc-19144-entrypoint-throw-a-user-error-in-the
+    - name: hardened-no
       uses: jitsecurity-controls/jit-github-action@v4.0.1
       with:
-        security_control: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+        security_control: registry.jit.io/prowler:not-hardened-no-dups
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         
   secret-detection:
