@@ -56,7 +56,7 @@ jobs:
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
         inline_environment: -e GITHUB_TOKEN="${{ secrets.LEGITIFY_SECRET }}"
         
-  remediation-pr:
+  remediation-pr-workflow-remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
     runs-on: ubuntu-20.04
     timeout-minutes: 20
@@ -67,7 +67,20 @@ jobs:
         security_control: registry.jit.io/open-remediation-pr-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
         security_control_output_file: /opt/code/jit-report/results.json
         runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
-
+        inline_environment: -e GITHUB_TOKEN="${{fromJSON(github.event.inputs.client_payload).payload.github_token}}"
+        
+  remediation-pr-workflow-remediation-pr:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 20
+    steps:
+    - name: remediation-pr-alpine:sc-19144-entrypoint-throw-a-user-error-in-the
+      uses: jitsecurity-controls/jit-github-action@v4.0.1
+      with:
+        security_control: registry.jit.io/open-remediation-pr-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+        security_control_output_file: /opt/code/jit-report/results.json
+        runner_setup: ${{toJSON(fromJSON(github.event.inputs.client_payload).context.job.runner.setup)}}
+        
   runtime-misconfig-detection-aws:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'runtime-misconfig-detection-aws' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-runtime-misconfiguration-detection'
     runs-on: ubuntu-20.04
