@@ -68,6 +68,7 @@ override:
           runner:
             setup:
               checkout: false
+              auth_type: null
             type: github_actions
           steps:
           - name: Run Prowler For AWS
