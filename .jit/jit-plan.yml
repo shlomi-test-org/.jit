@@ -133,6 +133,13 @@ items:
       Use strong password policy
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-strong-policy.yml@latest
+  - name: |
+      Create individual identities (no shared credentials)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-shared-creds.yml@latest
+    input:
+      status: passed
+      note: asdasdasda
 override:
   workflows:
     api-security:
