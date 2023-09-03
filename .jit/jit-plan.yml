@@ -140,6 +140,14 @@ items:
     input:
       status: passed
       note: asdasdasda
+  - name: >
+      Use IAM roles and its temporary security credentials to provide access to
+      third parties
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-third-party.yml@latest
+    input:
+      status: passed
+      note: dsgsdgsdg
 override:
   workflows:
     api-security:
