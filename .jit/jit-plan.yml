@@ -79,6 +79,14 @@ items:
       Remove access keys for the root user
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
+  - name: >
+      Create an incident response (IR) runbook for root account credential
+      misuse
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-ir.yml@latest
+    input:
+      status: passed
+      note: sdsadsad
 override:
   workflows:
     api-security:
