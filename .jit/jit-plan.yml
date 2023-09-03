@@ -111,7 +111,7 @@ items:
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-separate-account.yml@latest
     input:
       status: passed
-      note: sadasdas
+      note: asfsdgsdgsdgs
 override:
   workflows:
     api-security:
