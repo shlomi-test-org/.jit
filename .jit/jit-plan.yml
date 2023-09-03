@@ -75,6 +75,10 @@ items:
       accounts
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-mfa.yml@latest
+  - name: |
+      Remove access keys for the root user
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
 override:
   workflows:
     api-security:
