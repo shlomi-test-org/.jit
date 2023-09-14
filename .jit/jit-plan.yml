@@ -1,6 +1,6 @@
 name: My plan
 level: beginner
-update_id: 948d444e-abed-459c-8cd4-e1674b78b49f
+update_id: 6590d320-c47d-4342-88f1-e1a3603909e0
 author: Jit
 version: 0.1
 owners:
@@ -143,12 +143,6 @@ override:
             with:
               env:
                 GITHUB_TOKEN: ${{ secrets.LEGITIFY_SECRET }}
-    sca:
-      jobs:
-        software-component-analysis-js:
-          steps:
-            - name: Run npm audit
-              uses: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
     remediation-pr:
       jobs:
         remediation-pr:
@@ -171,3 +165,9 @@ override:
           steps:
           - name: Run Prowler
             uses: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+    sca:
+      jobs:
+        software-component-analysis-js:
+          steps:
+          - name: Run npm audit
+            uses: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
