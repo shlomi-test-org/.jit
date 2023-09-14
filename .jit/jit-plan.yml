@@ -154,7 +154,7 @@ override:
         remediation-pr:
           steps:
           - name: Run Jit Remediation
-            uses: registry.jit.io/open-remediation-pr-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+            uses: registry.jit.io/open-remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic-module
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
