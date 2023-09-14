@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: npm-audit
+    - name: npm-audit-slim:not-hardened-sc-19079-sca-javascript-support
       uses: jitsecurity-controls/jit-github-action@v4.0.1
       with:
         security_control: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
