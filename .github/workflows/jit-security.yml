@@ -103,7 +103,7 @@ jobs:
     - name: npm-audit
       uses: jitsecurity-controls/jit-github-action@v4.0.1
       with:
-        security_control: registry.jit.io/control-npm-audit-slim:main
+        security_control: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
         security_control_output_file: /code/jit-report/enriched-audit-results.json
         
   software-component-analysis-php:
