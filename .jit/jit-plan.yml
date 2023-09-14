@@ -143,6 +143,12 @@ override:
             with:
               env:
                 GITHUB_TOKEN: ${{ secrets.LEGITIFY_SECRET }}
+    sca:
+      jobs:
+        software-component-analysis-js:
+          steps:
+            - name: Run npm audit
+              uses: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
     remediation-pr:
       jobs:
         remediation-pr:
