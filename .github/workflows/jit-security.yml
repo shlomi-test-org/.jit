@@ -32,15 +32,15 @@ jobs:
       with:
         security_control: registry.jit.io/control-trivy-alpine:main
         
-  enrich:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v4.0.1
-      with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+  # enrich:
+  #   if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
+  #   runs-on: ubuntu-20.04
+  #   timeout-minutes: 20
+  #   steps:
+  #   - name: enrichment
+  #     uses: jitsecurity-controls/jit-github-action@v4.0.1
+  #     with:
+  #       security_control: registry.jit.io/control-enrichment-slim:main
         
   github-misconfiguration:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'github-misconfiguration' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-github-misconfiguration'
