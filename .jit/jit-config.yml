@@ -7,6 +7,20 @@ applications:
   exclude_paths: []
   target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
   type: api
+- api_domain: www.ynet.co.il
+  application_name: ynet-env
+  authentication_key: password
+  authentication_mode: selenium
+  authentication_value: ${{ jit_secrets.web_scan_authentication_value }}
+  exclude_paths: []
+  login_page_url: https://www.ynet.co.il/home/0,7340,L-8,00.html
+  password: encrypted$AQICAHiuvpvALuSdLnnTj5z4D+XYysHZmbLQ2xWihXPmivthFAERhQSlLwMluabllycYtuqSAAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMdlfpFmgFn3o+6JWSAgEQgCMmEZEDJJfc8QcMC/ZNgDNQ3jKaTNGGOptcCHTN4HNTfDuCSA==
+  password_css_selector: ''
+  password_ref: ${{ jit_secrets.web_scan_password }}
+  target_url: https://www.ynet.co.il
+  type: web
+  username: matthew
+  username_css_selector: ''
 aws:
 - account_id: '748560276420'
   regions:
