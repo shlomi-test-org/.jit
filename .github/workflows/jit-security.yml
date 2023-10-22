@@ -7,6 +7,7 @@ on:
           description: The Client payload
           required: true
 
+
 permissions:
   contents: read
   id-token: write
