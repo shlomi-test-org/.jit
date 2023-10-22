@@ -39,7 +39,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@retry-on-errors
+      uses: jitsecurity-controls/jit-github-action@sc-20969
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
         
@@ -49,7 +49,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the
-      uses: jitsecurity-controls/jit-github-action@retry-on-errors
+      uses: jitsecurity-controls/jit-github-action@sc-20969
       with:
         security_control: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
         inline_environment: -e GITHUB_TOKEN="${{ secrets.LEGITIFY_SECRET }}"
@@ -60,7 +60,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic
-      uses: jitsecurity-controls/jit-github-action@retry-on-errors
+      uses: jitsecurity-controls/jit-github-action@sc-20969
       with:
         security_control: registry.jit.io/open-remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic-module
         security_control_output_file: /opt/code/jit-report/results.json
@@ -81,7 +81,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: gitleaks
-      uses: jitsecurity-controls/jit-github-action@retry-on-errors
+      uses: jitsecurity-controls/jit-github-action@sc-20969
       with:
         security_control: registry.jit.io/control-gitleaks-alpine:main
         security_control_output_file: /tmp/report.json
@@ -195,7 +195,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: semgrep
-      uses: jitsecurity-controls/jit-github-action@retry-on-errors
+      uses: jitsecurity-controls/jit-github-action@sc-20969
       with:
         security_control: registry.jit.io/control-semgrep-alpine:main
         
