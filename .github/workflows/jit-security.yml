@@ -71,7 +71,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: hardened-sc-19144-entrypoint-throw-a-user-error-in-the
-      uses: jitsecurity-controls/jit-github-action@vstring
+      uses: jitsecurity-controls/jit-github-action@v4.0.3
       with:
         security_control: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
         
