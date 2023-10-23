@@ -73,7 +73,7 @@ jobs:
     - name: hardened-sc-19144-entrypoint-throw-a-user-error-in-the
       uses: jitsecurity-controls/jit-github-action@v4.0.3
       with:
-        security_control: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+        security_control: registry.jit.io/prowler:latest
         
   secret-detection:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'secret-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-secret-detection'
