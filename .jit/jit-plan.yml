@@ -37,16 +37,13 @@ items:
   - name: Verify that Github Branch Protection is properly configured
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
-  - name: |
-      Protect log storage from unintended access
+  - name: Protect log storage from unintended access
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-access-protection.yml@latest
-  - name: |
-      Configure CloudTrail in all AWS Accounts and in all Regions
+  - name: Configure CloudTrail in all AWS Accounts and in all Regions
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-config.yml@latest
-  - name: |
-      Enable CloudTrail log file integrity validation
+  - name: Enable CloudTrail log file integrity validation
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-integrity-validation.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
@@ -60,11 +57,10 @@ items:
   - name: Detect GitHub misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
-  - name: |
-      Rotate credentials regularly
+  - name: Rotate credentials regularly
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-creds-rotation.yml@latest
-  - name: >
+  - name: >-
       Enable multi-factor authentication for all Human Identities with AWS
       access
     uses: >-
@@ -75,8 +71,7 @@ items:
     input:
       note: asdasdasda
       status: passed
-  - name: |
-      Use strong password policy
+  - name: Use strong password policy
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-strong-policy.yml@latest
   - name: >-
@@ -96,8 +91,7 @@ items:
     input:
       note: lsafjlkasjdlk
       status: passed
-  - name: |
-      Use root user only by exception
+  - name: Use root user only by exception
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-exception.yml@latest
   - name: >-
@@ -108,11 +102,10 @@ items:
     input:
       note: sdsadsad
       status: passed
-  - name: |
-      Remove access keys for the root user
+  - name: Remove access keys for the root user
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
-  - name: >
+  - name: >-
       Enable multi-factor authentication (MFA) on the root user for all AWS
       accounts
     uses: >-
@@ -131,6 +124,9 @@ items:
     input:
       note: asdasdad
       status: passed
+  - name: Scan infrastructure for runtime misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
 override:
   workflows:
     api-security:
