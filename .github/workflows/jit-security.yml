@@ -40,7 +40,7 @@ jobs:
     - name: enrichment
       uses: jitsecurity-controls/jit-github-action@v4.0.4
       with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: registry.jit.io/control-enrichment-slim:sc-21518-enrichment-control-support-detection-of-dockerfiles
         
   github-misconfiguration:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'github-misconfiguration' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-github-misconfiguration'
