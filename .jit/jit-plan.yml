@@ -127,9 +127,6 @@ items:
     input:
       note: asdasdad
       status: passed
-  - name: Protect code changes by properly setting branch protection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
 override:
   workflows:
     api-security:
