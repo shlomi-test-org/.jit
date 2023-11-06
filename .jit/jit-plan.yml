@@ -1,6 +1,5 @@
 name: My plan
 level: beginner
-update_id: 48638956-62d5-47ae-8045-41ce29bc04c3
 author: Jit
 version: 0.1
 owners:
@@ -10,108 +9,127 @@ references:
 tags: []
 items:
   - name: Configure AWS account contacts
-
-    uses: jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-communication.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-communication.yml@latest
     input:
       note: asdasda
       status: passed
   - name: Set account contact information
-
-    uses: jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-contacts-config.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-contacts-config.yml@latest
     input:
       note: asdasdasd
       status: passed
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Conduct periodic architecture reviews (minimum once every year)
-
-    uses: jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
     input:
       note: dsfsdfsdf
       status: passed
   - name: Review the AWS Shared Responsibility Models for Security and Resiliency
-
-    uses: jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
     input:
       note: dsfsdfds
       status: passed
   - name: Verify that Github Branch Protection is properly configured
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Protect log storage from unintended access
-
-    uses: jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-access-protection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-access-protection.yml@latest
   - name: Configure CloudTrail in all AWS Accounts and in all Regions
-
-    uses: jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-config.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-config.yml@latest
   - name: Enable CloudTrail log file integrity validation
-
-    uses: jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-integrity-validation.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-integrity-validation.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
-    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
   - name: Rotate credentials regularly
-
-    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-creds-rotation.yml@latest
-  - name: Enable multi-factor authentication for all Human Identities with AWS access
-
-    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-mfa.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-creds-rotation.yml@latest
+  - name: >-
+      Enable multi-factor authentication for all Human Identities with AWS
+      access
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-mfa.yml@latest
   - name: Create individual identities (no shared credentials)
-
-    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-shared-creds.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-shared-creds.yml@latest
     input:
       note: asdasdasda
       status: passed
   - name: Use strong password policy
-
-    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-strong-policy.yml@latest
-  - name: Use IAM roles and its temporary security credentials to provide access to third parties
-
-    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-third-party.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-strong-policy.yml@latest
+  - name: >-
+      Use IAM roles and its temporary security credentials to provide access to
+      third parties
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-third-party.yml@latest
     input:
       note: dsgsdgsdg
       status: passed
   - name: Verify that the users of your AWS accounts have enabled MFA
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
   - name: Confirm your hosting model
-
-    uses: jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
     input:
       note: lsafjlkasjdlk
       status: passed
   - name: Use root user only by exception
-
-    uses: jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-exception.yml@latest
-  - name: Create an incident response (IR) runbook for root account credential misuse
-
-    uses: jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-ir.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-exception.yml@latest
+  - name: >-
+      Create an incident response (IR) runbook for root account credential
+      misuse
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-ir.yml@latest
     input:
       note: sdsadsad
       status: passed
   - name: Remove access keys for the root user
-
-    uses: jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
-  - name: Enable multi-factor authentication (MFA) on the root user for all AWS accounts
-
-    uses: jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-mfa.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
+  - name: >-
+      Enable multi-factor authentication (MFA) on the root user for all AWS
+      accounts
+    uses: >-
+      jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-mfa.yml@latest
   - name: Scan infrastructure for runtime misconfigurations
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (Azure)
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Enable AWS Business Support (or greater) on all production AWS accounts
-
-    uses: jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
+    uses: >-
+      jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
     input:
       note: asdasdad
       status: passed
+  - name: Protect code changes by properly setting branch protection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
 override:
   workflows:
     api-security:
@@ -122,8 +140,8 @@ override:
               checkout: false
             type: github_actions
           steps:
-          - name: Run ZAP
-            uses: registry.jit.io/zap:main
+            - name: Run ZAP
+              uses: registry.jit.io/zap:main
     github-misconfiguration:
       jobs:
         github-misconfiguration:
@@ -132,17 +150,19 @@ override:
               checkout: false
             type: github_actions
           steps:
-          - name: Run Legitify
-            uses: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
-            with:
-              env:
-                GITHUB_TOKEN: ${{ secrets.LEGITIFY_SECRET }}
+            - name: Run Legitify
+              uses: >-
+                registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+              with:
+                env:
+                  GITHUB_TOKEN: ${{ secrets.LEGITIFY_SECRET }}
     remediation-pr:
       jobs:
         remediation-pr:
           steps:
-          - name: Run Jit Remediation
-            uses: registry.jit.io/open-remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic-module
+            - name: Run Jit Remediation
+              uses: >-
+                registry.jit.io/open-remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic-module
     runtime-misconfiguration-detection:
       jobs:
         runtime-misconfig-detection-aws:
@@ -151,17 +171,19 @@ override:
               checkout: false
             type: github_actions
           steps:
-          - name: Run Prowler For AWS
-            uses: registry.jit.io/prowler:latest
+            - name: Run Prowler For AWS
+              uses: registry.jit.io/prowler:latest
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
           steps:
-          - name: Run Prowler
-            uses: registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
+            - name: Run Prowler
+              uses: >-
+                registry.jit.io/prowler:not-hardened-sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
     sca:
       jobs:
         software-component-analysis-js:
           steps:
-          - name: Run npm audit
-            uses: registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
+            - name: Run npm audit
+              uses: >-
+                registry.jit.io/control-npm-audit-slim:not-hardened-sc-19079-sca-javascript-support-remediation
