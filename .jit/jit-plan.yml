@@ -127,6 +127,9 @@ items:
     input:
       note: asdasdad
       status: passed
+  - name: Verify that MFA for your GitHub organization is enabled
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
 override:
   workflows:
     api-security:
