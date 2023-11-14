@@ -85,6 +85,9 @@ items:
   - name: Verify that the users of your AWS accounts have enabled MFA
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
+  - name: Verify that MFA for your GitHub organization is enabled
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
   - name: Confirm your hosting model
     uses: >-
       jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
@@ -127,9 +130,15 @@ items:
     input:
       note: asdasdad
       status: passed
-  - name: Verify that MFA for your GitHub organization is enabled
+  - name: Limit user permissions to follow least privilege principle
     uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
+  - name: There are no dormant GitHub users
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
+  - name: Enable multi-factor authentication for members
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
 override:
   workflows:
     api-security:
