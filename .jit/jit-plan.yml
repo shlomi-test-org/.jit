@@ -128,8 +128,6 @@ items:
     input:
       note: asdasdad
       status: passed
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
     api-security:
