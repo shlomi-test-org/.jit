@@ -12,16 +12,6 @@ permissions:
   id-token: write
 
 jobs:
-  api-security-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'api-security-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-api-security'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: 
-      uses: jitsecurity-controls/jit-github-action@v4.0.5
-      with:
-        security_control: registry.jit.io/zap:main
-        
   docker-scan:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-docker-scan'
     runs-on: ubuntu-20.04
