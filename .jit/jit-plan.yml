@@ -44,6 +44,9 @@ items:
   - name: Enable CloudTrail log file integrity validation
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-integrity-validation.yml@latest
+  - name: Scan your web application for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -131,9 +134,6 @@ items:
     input:
       note: asdasdad
     status: passed
-  - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
     api-security:
