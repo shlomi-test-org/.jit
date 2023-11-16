@@ -146,6 +146,16 @@ override:
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:not-hardened-gcp-test
+    web-app-scanner:
+      jobs:
+        web-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: jit
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-gcp-test
     github-misconfiguration:
       jobs:
         github-misconfiguration:
