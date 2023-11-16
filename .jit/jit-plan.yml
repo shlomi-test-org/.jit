@@ -20,8 +20,6 @@ items:
     input:
       note: asdasdasd
       status: passed
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Conduct periodic architecture reviews (minimum once every year)
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
