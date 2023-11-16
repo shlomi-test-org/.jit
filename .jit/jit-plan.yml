@@ -132,11 +132,13 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
 override:
   workflows:
-    web-app-scanner:
+    api-security:
       jobs:
-        web-security-detection:
+        api-security-detection:
           runner:
             setup:
               checkout: false
