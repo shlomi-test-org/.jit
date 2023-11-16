@@ -1,18 +1,20 @@
 applications:
 - api_domain: api.staging.jit.io
   application_name: GuyStagingWeb
-
   authentication_mode: non-authenticated
-
   exclude_paths:
   - https://platform.staging.jit.io/logout
   - https://api.staging.jit.io/tenant/sign-up
   login_page_url: https://platform.staging.jit.io/login
-
   password_css_selector: ''
-
   target_url: https://platform.staging.jit.io
   type: web
+- api_domain: api.staging.jit.io
+  application_name: AssetServiceAPIStaging
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: .jit/asset-service-staging (1).json
+  type: api
 aws:
 - account_id: '748560276420'
   regions:
