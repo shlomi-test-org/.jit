@@ -32,17 +32,6 @@ jobs:
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
         
-  github-misconfiguration:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'github-misconfiguration' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-github-misconfiguration'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 20
-    steps:
-    - name: legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the
-      uses: jitsecurity-controls/jit-github-action@v4.0.5
-      with:
-        security_control: registry.jit.io/control-legitify-alpine:sc-19144-entrypoint-throw-a-user-error-in-the-entrypoint
-        inline_environment: -e GITHUB_TOKEN="${{ secrets.LEGITIFY_SECRET }}"
-        
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
     runs-on: ubuntu-20.04
@@ -81,10 +70,10 @@ jobs:
     runs-on: ubuntu-20.04
     timeout-minutes: 20
     steps:
-    - name: remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic
+    - name: remediation-pr
       uses: jitsecurity-controls/jit-github-action@v4.0.5
       with:
-        security_control: registry.jit.io/open-remediation-pr-alpine:not-hardened-sc-19416-remediation-control-add-a-generic-module
+        security_control: registry.jit.io/open-remediation-pr-alpine:main
         security_control_output_file: /opt/code/jit-report/results.json
         
   secret-detection:
