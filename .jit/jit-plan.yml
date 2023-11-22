@@ -34,6 +34,9 @@ items:
     input:
       note: dsfsdfds
       status: passed
+  - name: Verify that Github Branch Protection is properly configured
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Protect log storage from unintended access
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-access-protection.yml@latest
@@ -131,7 +134,7 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Verify that Github Branch Protection is properly configured
+  - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 
