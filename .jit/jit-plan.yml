@@ -140,3 +140,13 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 
+
+override:
+  workflows:
+    sbom:
+      jobs:
+        software-bill-of-materials:
+          steps:
+            - name: Run syft
+              uses: >-
+                registry.jit.io/control-syft-alpine:not-hardened-fix-src-bug
