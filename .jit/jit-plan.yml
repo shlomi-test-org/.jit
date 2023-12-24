@@ -149,4 +149,4 @@ override:
           steps:
             - name: Run syft
               uses: >-
-                registry.jit.io/control-syft-alpine:not-hardened-fix-src-bug
+                registry.jit.io/control-syft-alpine:not-hardened-sc-22106-syft-control-post-processing-sbom-report
