@@ -142,4 +142,7 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Import AWS Security Hub Findings
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-cloud-security-posture-management.yml@latest
 
