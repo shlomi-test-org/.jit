@@ -37,6 +37,9 @@ items:
   - name: Verify that Github Branch Protection is properly configured
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+  - name: Import AWS Security Hub Findings
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-cloud-security-posture-management.yml@latest
   - name: Protect log storage from unintended access
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_cloudtrail/item-cloudtrail-access-protection.yml@latest
@@ -57,6 +60,9 @@ items:
   - name: Detect GitHub misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
+  - name: Scan Kubernetes configuration files
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
@@ -127,9 +133,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
   - name: Enable AWS Business Support (or greater) on all production AWS accounts
     uses: >-
       jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
@@ -139,10 +142,4 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
-  - name: Import AWS Security Hub Findings
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-cloud-security-posture-management.yml@latest
 
