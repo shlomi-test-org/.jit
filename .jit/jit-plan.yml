@@ -142,9 +142,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 override:
   workflows:
     sbom:
@@ -152,5 +149,4 @@ override:
         software-bill-of-materials:
           steps:
             - name: Run syft
-              uses: >-
-                registry.jit.io/control-syft-alpine:not-hardened-main
+              uses: registry.jit.io/control-syft-alpine:not-hardened-main
