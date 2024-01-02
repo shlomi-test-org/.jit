@@ -153,3 +153,23 @@ override:
           steps:
             - name: Run syft
               uses: registry.jit.io/control-syft-alpine:not-hardened-main
+    web-app-scanner:
+      jobs:
+        web-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+          - name: Run ZAP
+            uses: registry.jit.io/zap:not-hardened-avichay-asvs
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+          - name: Run ZAP
+            uses: registry.jit.io/zap:not-hardened-avichay-asvs
