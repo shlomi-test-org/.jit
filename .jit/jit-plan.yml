@@ -133,20 +133,27 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Generate a Software Bill of Materials (SBOM)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
   - name: Enable AWS Business Support (or greater) on all production AWS accounts
     uses: >-
       jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
     input:
       note: asdasdad
       status: passed
-  - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 override:
   workflows:
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
     sbom:
       jobs:
         software-bill-of-materials:
@@ -161,15 +168,5 @@ override:
               checkout: false
             type: github_actions
           steps:
-          - name: Run ZAP
-            uses: registry.jit.io/zap:not-hardened-avichay-asvs
-    api-security:
-      jobs:
-        api-security-detection:
-          runner:
-            setup:
-              checkout: false
-            type: github_actions
-          steps:
-          - name: Run ZAP
-            uses: registry.jit.io/zap:not-hardened-avichay-asvs
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
