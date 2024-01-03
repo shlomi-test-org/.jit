@@ -38,9 +38,9 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@Jordan
+      uses: jitsecurity-controls/jit-github-action@v4.0.6
       with:
-        security_control: registry.jit.io/control-enrichment-slim:main
+        security_control: registry.jit.io/control-enrichment-slim:not-hardened-Jordan
         
   iac-misconfig-detection-cloudformation:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
@@ -105,7 +105,7 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@v4.0.6
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:main
+        security_control: registry.jit.io/control-gitleaks-alpine:not-hardened-Jordan
         security_control_output_file: /tmp/report.json
         
   software-bill-of-materials:
