@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 20
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v4.0.6
+      uses: jitsecurity-controls/jit-github-action@Jordan
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
         
