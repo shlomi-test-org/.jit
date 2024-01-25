@@ -1,11 +1,19 @@
 applications:
 - api_domain: api.staging.jit.io
-  application_name: aaa
-  authentication_key: Authorization
-  authentication_mode: header-bearer
-  authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
+  application_name: GuyStagingWeb
+  authentication_mode: non-authenticated
+  exclude_paths:
+  - https://platform.staging.jit.io/logout
+  - https://api.staging.jit.io/tenant/sign-up
+  login_page_url: https://platform.staging.jit.io/login
+  password_css_selector: ''
+  target_url: https://platform.staging.jit.io
+  type: web
+- api_domain: api.staging.jit.io
+  application_name: AssetServiceAPIStaging
+  authentication_mode: non-authenticated
   exclude_paths: []
-  target_url: https://meshi-bucket.s3.amazonaws.com/openapi.json
+  target_url: .jit/asset-service-staging.json
   type: api
 aws:
 - account_id: '748560276420'
