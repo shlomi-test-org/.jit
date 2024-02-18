@@ -176,10 +176,6 @@ override:
     workflow-enrichment-code:
       jobs:
         enrich:
-          runner:
-            setup:
-              checkout: false
-            type: github_actions
           steps:
             - name: Run code enrichment
               uses: registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
