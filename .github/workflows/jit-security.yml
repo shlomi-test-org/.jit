@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 60
     steps:
     - name: enrichment
-      uses: jitsecurity-controls/jit-github-action@v4.1.0
+      uses: jitsecurity-controls/jit-github-action@sc-23729-github-service-prod-authenticate-oidc-token
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
         
