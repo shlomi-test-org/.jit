@@ -9,9 +9,3 @@ applications:
   password_css_selector: ''
   target_url: https://platform.staging.jit.io
   type: web
-- api_domain: api.staging.jit.io
-  application_name: AssetServiceAPIStaging
-  authentication_mode: non-authenticated
-  exclude_paths: []
-  target_url: .jit/asset-service-staging.json
-  type: api
