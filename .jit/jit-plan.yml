@@ -38,7 +38,8 @@ items:
       note: dsfsdfds
       requirements: null
       status: passed
-  - name: Ensure all credentials used by your applications are not hard-coded
+  - name: |
+      Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
   - name: Import AWS Security Hub Findings
@@ -151,6 +152,9 @@ items:
   - name: Scan your code for license violations
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
+  - name: Verify that the users of your AWS accounts have enabled MFA
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-mfa-cloud-providers.yml@latest
 override:
   workflows:
     api-security:
