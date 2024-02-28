@@ -38,8 +38,7 @@ items:
       note: dsfsdfds
       requirements: null
       status: passed
-  - name: |
-      Ensure all credentials used by your applications are not hard-coded
+  - name: Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
   - name: Import AWS Security Hub Findings
@@ -68,6 +67,9 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Rotate credentials regularly
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-creds-rotation.yml@latest
@@ -146,9 +148,9 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+  - name: Scan your code for license violations
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     api-security:
