@@ -157,6 +157,15 @@ items:
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
 override:
   workflows:
+    runtime-misconfiguration-detection-gcp:
+      jobs:
+        runtime-misconfig-detection-gcp:
+          steps:
+            - name: Run Prowler
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
+              with:
+                env:
+                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
     api-security:
       jobs:
         api-security-detection:
