@@ -7,37 +7,37 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items: 
+items:
   - name: Configure AWS account contacts
     uses: >-
       jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-communication.yml@latest
     input:
+      status: passed
       note: asdasda
       requirements: null
-      status: passed
   - name: Set account contact information
     uses: >-
       jitsecurity-controls/jit-plans/items/communication_with_aws/item-account-contacts-config.yml@latest
     input:
+      status: passed
       note: asdasdasd
       requirements: null
-      status: passed
   - name: Scan your API for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Conduct periodic architecture reviews (minimum once every year)
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
     input:
+      status: passed
       note: dsfsdfsdf
       requirements: null
-      status: passed
   - name: Review the AWS Shared Responsibility Models for Security and Resiliency
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
     input:
+      status: passed
       note: dsfsdfds
       requirements: null
-      status: passed
   - name: |
       Ensure all credentials used by your applications are not hard-coded
     uses: >-
@@ -83,9 +83,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-shared-creds.yml@latest
     input:
+      status: passed
       note: asdasdasda
       requirements: null
-      status: passed
   - name: Use strong password policy
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-no-strong-policy.yml@latest
@@ -95,9 +95,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-iam-third-party.yml@latest
     input:
+      status: passed
       note: dsgsdgsdg
       requirements: null
-      status: passed
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
@@ -105,9 +105,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
     input:
+      status: passed
       note: lsafjlkasjdlk
       requirements: null
-      status: passed
   - name: Use root user only by exception
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-exception.yml@latest
@@ -117,9 +117,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-ir.yml@latest
     input:
+      status: passed
       note: sdsadsad
       requirements: null
-      status: passed
   - name: Remove access keys for the root user
     uses: >-
       jitsecurity-controls/jit-plans/items/aws_root_account/item-root-account-keys.yml@latest
@@ -131,9 +131,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Generate a Software Bill of Materials (SBOM)
@@ -143,9 +140,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
     input:
+      status: passed
       note: asdasdad
       requirements: null
-      status: passed
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
