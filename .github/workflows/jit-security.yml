@@ -12,6 +12,16 @@ permissions:
   id-token: write
 
 jobs:
+  docker-scan:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-docker-scan'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: trivy
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-trivy-alpine:main
+        
   enrich:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'enrich' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-enrichment-code'
     runs-on: ubuntu-20.04
@@ -21,6 +31,49 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.0
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
+        
+  iac-misconfig-detection-cloudformation:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-kics-alpine:main
+        security_control_output_file: /code/jit-report/results.json
+        
+  iac-misconfig-detection-pulumi:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-pulumi' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-kics-alpine:main
+        security_control_output_file: /code/jit-report/results.json
+        
+  iac-misconfig-detection-terraform:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-terraform' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: kics
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-kics-alpine:main
+        security_control_output_file: /code/jit-report/results.json
+        
+  license-compliance-checker:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'license-compliance-checker' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-license-compliance'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: license-checker
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-license-checker-alpine:main
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
@@ -43,6 +96,17 @@ jobs:
       with:
         security_control: registry.jit.io/control-gitleaks-alpine:main
         security_control_output_file: /tmp/report.json
+        
+  software-bill-of-materials:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-bill-of-materials' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sbom'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: syft-alpine:not-hardened
+      uses: jitsecurity-controls/jit-github-action@v4.2.0
+      with:
+        security_control: registry.jit.io/control-syft-alpine:not-hardened-main
+        fail_if_cannot_checkout: false
         
   software-component-analysis-go:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-go' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
