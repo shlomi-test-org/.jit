@@ -45,6 +45,8 @@ items:
     input:
       status: failed
       note: ddd
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
     api-security:
