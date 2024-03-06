@@ -33,8 +33,6 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Detect GitHub misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
