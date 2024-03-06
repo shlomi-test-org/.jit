@@ -27,12 +27,12 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Limit the creation of public repos
+    uses: >-
+      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
   - name: Detect GitHub misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
@@ -51,9 +51,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Limit the creation of public repos
-    uses: >-
-      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
 override:
   workflows:
     api-security:
