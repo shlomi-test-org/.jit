@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: 9351d167-eaa1-40b6-b0ab-06222f045e8d
 author: Jit
 version: 0.1
 owners:
@@ -7,48 +8,38 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items:   
-  - name: Ensure all credentials used by your applications are not hard-coded
-    uses: >-
-      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
-  - name: Verify that Github Branch Protection is properly configured
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan your Dockerfiles for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
-  - name: Verify that MFA for your GitHub organization is enabled
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: |
-      Review the AWS Shared Responsibility Models for Security and Resiliency
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
+items:
+  - name: Review the AWS Shared Responsibility Models for Security and Resiliency
+
+    uses: jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
     input:
-      status: failed
       note: ddd
+      requirements: null
+      status: failed
+  - name: Ensure all credentials used by your applications are not hard-coded
+    uses: jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
+  - name: Verify that Github Branch Protection is properly configured
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your Dockerfiles for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+  - name: Scan Kubernetes configuration files
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Scan your code for license violations
+    uses: jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
+  - name: Verify that MFA for your GitHub organization is enabled
+    uses: jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations (GCP)
+    uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Generate a Software Bill of Materials (SBOM)
+    uses: jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 override:
   workflows:
     api-security:
@@ -59,23 +50,23 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+          - name: Run ZAP
+            uses: registry.jit.io/zap:not-hardened-avichay-asvs
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
           steps:
-            - name: Run Prowler
-              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
-              with:
-                env:
-                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
+          - name: Run Prowler
+            uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
+            with:
+              env:
+                GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
     sbom:
       jobs:
         software-bill-of-materials:
           steps:
-            - name: Run syft
-              uses: registry.jit.io/control-syft-alpine:not-hardened-main
+          - name: Run syft
+            uses: registry.jit.io/control-syft-alpine:not-hardened-main
     web-app-scanner:
       jobs:
         web-security-detection:
@@ -84,12 +75,11 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+          - name: Run ZAP
+            uses: registry.jit.io/zap:not-hardened-avichay-asvs
     workflow-enrichment-code:
       jobs:
         enrich:
           steps:
-            - name: Run code enrichment
-              uses: >-
-                registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
+          - name: Run code enrichment
+            uses: registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
