@@ -14,9 +14,6 @@ items:
   - name: Limit user permissions to follow the least privilege principle
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
-  - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Review the AWS Shared Responsibility Models for Security and Resiliency
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
