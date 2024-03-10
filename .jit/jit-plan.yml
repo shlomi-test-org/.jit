@@ -7,14 +7,14 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items: 
+items:
   - name: Review the AWS Shared Responsibility Models for Security and Resiliency
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_review/item-arch-shared-responsibility.yml@latest
     input:
+      status: failed
       note: ddd
       requirements: null
-      status: failed
   - name: Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
@@ -51,6 +51,9 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
 override:
   workflows:
     api-security:
