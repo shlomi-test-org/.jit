@@ -80,6 +80,13 @@ items:
     input:
       status: passed
       note: asdasd
+  - name: |
+      Conduct periodic architecture reviews (minimum once every year)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
+    input:
+      status: passed
+      note: sadsad
 override:
   workflows:
     api-security:
