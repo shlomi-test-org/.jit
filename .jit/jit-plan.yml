@@ -15,6 +15,10 @@ items:
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+  - name: |
+      Ensure all credentials used by your applications are not hard-coded
+    uses: >-
+      jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
 override:
   workflows:
     api-security:
