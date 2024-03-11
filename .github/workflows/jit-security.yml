@@ -126,7 +126,7 @@ jobs:
     - name: gosec
       uses: jitsecurity-controls/jit-github-action@v4.2.0
       with:
-        security_control: registry.jit.io/control-gosec-alpine:main
+        security_control: registry.jit.io/control-gosec-alpine:jordan-test
         
   static-code-analysis-java:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-java' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
