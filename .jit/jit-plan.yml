@@ -7,55 +7,7 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items:
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: Scan your code for license violations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
-  - name: Verify that MFA for your GitHub organization is enabled
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
-  - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: |
-      Confirm your hosting model
-    uses: >-
-      jitsecurity-controls/jit-plans/items/partner_hosted/item-partner-hosting-model.yml@latest
-    input:
-      status: failed
-      note: asdasdas
-  - name: |
-      Enable AWS Business Support (or greater) on all production AWS accounts
-    uses: >-
-      jitsecurity-controls/jit-plans/items/support_level/item-support-business.yml@latest
-    input:
-      status: passed
-      note: asdasd
-  - name: |
-      Conduct periodic architecture reviews (minimum once every year)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_review/item-arch-review.yml@latest
-    input:
-      status: passed
-      note: sadsad
+items: []
 override:
   workflows:
     api-security:
