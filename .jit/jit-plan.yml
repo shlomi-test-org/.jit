@@ -197,9 +197,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Secure Software Development Lifecycle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
 override:
   workflows:
     api-security:
@@ -244,7 +241,7 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
-    web-security-detection-secure-software-development-lifecycle:
+    asvs-secure-software-development-lifecycle:
       jobs:
         web-security-detection-secure-software-development-lifecycle:
           runner:
