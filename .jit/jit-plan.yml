@@ -65,6 +65,9 @@ items:
   - name: Secure Software Development Lifecycle
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
+  - name: Build and Deploy
+    uses: >-
+      jitsecurity-controls/jit-plans/items/configuration/item-build-and-deploy.yml@latest
 override:
   workflows:
     api-security:
