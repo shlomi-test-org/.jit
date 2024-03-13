@@ -32,6 +32,7 @@ override:
           runner:
             setup:
               checkout: false
+              timeout_minutes: 100
             type: github_actions
           steps:
             - name: Run ZAP
