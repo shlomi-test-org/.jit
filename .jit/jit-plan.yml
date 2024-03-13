@@ -244,3 +244,13 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
+    asvs-secure-software-development-lifecycle:
+      jobs:
+        web-security-detection-secure-software-development-lifecycle:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
