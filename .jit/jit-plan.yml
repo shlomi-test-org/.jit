@@ -197,9 +197,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Secure Software Development Lifecycle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
 override:
   workflows:
     api-security:
@@ -244,3 +241,12 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:sc-21642-enrichment-control-detecting-pulumi-when
+  web-security-detection-secure-software-development-lifecycle:
+    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection-secure-software-development-lifecycle' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-asvs-secure-software-development-lifecycle'
+    runs-on: ubuntu-20.04
+    timeout-minutes: 60
+    steps:
+    - name: hardened-avichay
+      uses: jitsecurity-controls/jit-github-action@v4.2.1
+      with:
+        security_control: registry.jit.io/zap:not-hardened-avichay-asvs
