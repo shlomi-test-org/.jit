@@ -16,6 +16,9 @@ items:
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+  - name: Scan your code for license violations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     api-security:
