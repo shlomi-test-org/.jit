@@ -15,7 +15,7 @@ applications:
   type: api
 deployment:
   environments:
-  - test
+  - test11
 github_branch_protection:
   organization:
     amount_of_required_reviews: 1
@@ -26,5 +26,5 @@ plan_items:
       configuration:
       - JuiceShop
       tags:
-      - test
+      - test11
       trigger: deployment
