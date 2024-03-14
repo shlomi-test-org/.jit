@@ -1,11 +1,13 @@
 applications:
-- api_domain: juice-shop.herokuapp.com
-  application_name: JuiceShop
+- api_domain: api.staging.jit.io
+  application_name: GuyStagingWeb
   authentication_mode: non-authenticated
-  exclude_paths: []
+  exclude_paths:
+  - https://platform.staging.jit.io/logout
+  - https://api.staging.jit.io/tenant/sign-up
   login_page_url: https://platform.staging.jit.io/login
   password_css_selector: ''
-  target_url: https://juice-shop.herokuapp.com/
+  target_url: https://platform.staging.jit.io
   type: web
 - api_domain: api.staging.jit.io
   application_name: AssetServiceAPIStaging
@@ -24,28 +26,28 @@ plan_items:
   item-web-app-scanner:
     deployment:
       configuration:
-      - JuiceShop
+      - GuyStagingWeb
       tags:
       - nnnnn
       trigger: deployment
   item-build-and-deploy:
     deployment:
       configuration:
-      - JuiceShop
+      - GuyStagingWeb
       tags:
       - nnnnn
       trigger: deployment
   item-secure-software-development-lifecycle:
     deployment:
       configuration:
-      - JuiceShop
+      - GuyStagingWeb
       tags:
       - nnnnn
       trigger: deployment
   item-malicious-software-architecture:
     deployment:
       configuration:
-      - JuiceShop
+      - GuyStagingWeb
       tags:
       - nnnnn
       trigger: deployment
