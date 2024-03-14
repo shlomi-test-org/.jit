@@ -13,6 +13,9 @@ applications:
   exclude_paths: []
   target_url: .jit/asset-service-staging.json
   type: api
+deployment:
+  environments:
+  - test
 github_branch_protection:
   organization:
     amount_of_required_reviews: 1
