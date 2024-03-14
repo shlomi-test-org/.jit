@@ -28,3 +28,24 @@ plan_items:
       tags:
       - nnnnn
       trigger: deployment
+  item-build-and-deploy:
+    deployment:
+      configuration:
+      - JuiceShop
+      tags:
+      - nnnnn
+      trigger: deployment
+  item-secure-software-development-lifecycle:
+    deployment:
+      configuration:
+      - JuiceShop
+      tags:
+      - nnnnn
+      trigger: deployment
+  item-malicious-software-architecture:
+    deployment:
+      configuration:
+      - JuiceShop
+      tags:
+      - nnnnn
+      trigger: deployment
