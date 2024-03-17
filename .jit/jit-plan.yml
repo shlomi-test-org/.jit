@@ -37,6 +37,9 @@ items:
   - name: Client-side Data Protection
     uses: >-
       jitsecurity-controls/jit-plans/items/data_protection/item-client-side-data-protection.yml@latest
+  - name: Sensitive Private Data
+    uses: >-
+      jitsecurity-controls/jit-plans/items/data_protection/item-sensitive-private-data.yml@latest
 override:
   workflows:
     api-security:
