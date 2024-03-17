@@ -34,6 +34,9 @@ items:
   - name: Data Protection and Privacy Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-data-protection-and-privacy-architecture.yml@latest
+  - name: Client-side Data Protection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/data_protection/item-client-side-data-protection.yml@latest
 override:
   workflows:
     api-security:
