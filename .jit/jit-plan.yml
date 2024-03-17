@@ -19,6 +19,9 @@ items:
   - name: Configuration Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-configuration-architecture.yml@latest
+  - name: Secure File Upload Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-file-upload-architecture.yml@latest
 override:
   workflows:
     api-security:
