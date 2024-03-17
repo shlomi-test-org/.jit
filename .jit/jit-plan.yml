@@ -28,6 +28,12 @@ items:
   - name: Input and Output Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-input-and-output-architecture.yml@latest
+  - name: Errors, Logging and Auditing Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+  - name: Data Protection and Privacy Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-data-protection-and-privacy-architecture.yml@latest
 override:
   workflows:
     api-security:
