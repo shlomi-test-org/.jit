@@ -22,6 +22,9 @@ items:
   - name: Secure File Upload Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-file-upload-architecture.yml@latest
+  - name: Access Control Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
 override:
   workflows:
     api-security:
