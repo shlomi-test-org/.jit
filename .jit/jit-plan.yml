@@ -8,29 +8,32 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Access Control Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
+  - name: Configuration Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-configuration-architecture.yml@latest
+  - name: Errors, Logging and Auditing Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+  - name: Input and Output Architecture
+    uses: >-
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-input-and-output-architecture.yml@latest
   - name: Malicious Software Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-malicious-software-architecture.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Secure Software Development Lifecycle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
-  - name: Configuration Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-configuration-architecture.yml@latest
   - name: Secure File Upload Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-file-upload-architecture.yml@latest
-  - name: Access Control Architecture
+  - name: Secure Software Development Lifecycle
     uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
-  - name: Input and Output Architecture
+      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
     uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-input-and-output-architecture.yml@latest
-  - name: Errors, Logging and Auditing Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
 override:
   workflows:
     api-security:
@@ -86,4 +89,3 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
-
