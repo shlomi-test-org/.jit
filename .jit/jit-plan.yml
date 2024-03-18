@@ -31,3 +31,59 @@ items:
   - name: Errors, Logging and Auditing Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+override:
+  workflows:
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+    asvs-secure-software-development-lifecycle:
+      jobs:
+        web-security-detection-secure-software-development-lifecycle:
+          runner:
+            setup:
+              checkout: false
+              timeout_minutes: 100
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+    runtime-misconfiguration-detection-gcp:
+      jobs:
+        runtime-misconfig-detection-gcp:
+          steps:
+            - name: Run Prowler
+              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
+              with:
+                env:
+                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
+    sbom:
+      jobs:
+        software-bill-of-materials:
+          steps:
+            - name: Run syft
+              uses: registry.jit.io/control-syft-alpine:not-hardened-main
+    web-app-scanner:
+      jobs:
+        web-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+    workflow-enrichment-code:
+      jobs:
+        enrich:
+          steps:
+            - name: Run code enrichment
+              uses: >-
+                registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
+
