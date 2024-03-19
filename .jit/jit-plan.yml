@@ -11,6 +11,9 @@ items:
   - name: Access Control Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Configuration Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-configuration-architecture.yml@latest
@@ -31,9 +34,9 @@ items:
   - name: Secure Software Development Lifecycle
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
+  - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 override:
   workflows:
     api-security:
