@@ -159,7 +159,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-osv-scanner-alpine:main
-        security_control_output_file: /code/jit-report/osv-scanner-results.json
         
   software-component-analysis-python:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-python' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
@@ -170,7 +169,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-osv-scanner-alpine:main
-        security_control_output_file: /code/jit-report/enriched-osv-scanner-results.json
         
   static-code-analysis-c-cpp:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'static-code-analysis-c-cpp' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sast'
@@ -291,24 +289,4 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-semgrep-alpine:main
-        
-  web-security-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-web-app-scanner'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 60
-    steps:
-    - name: hardened-avichay
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/zap:not-hardened-avichay-asvs
-        
-  web-security-detection-secure-software-development-lifecycle:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection-secure-software-development-lifecycle' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-asvs-secure-software-development-lifecycle'
-    runs-on: ubuntu-20.04
-    timeout-minutes: 105
-    steps:
-    - name: hardened-avichay
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/zap:not-hardened-avichay-asvs
         
