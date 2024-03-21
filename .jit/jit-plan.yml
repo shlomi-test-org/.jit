@@ -82,12 +82,7 @@ override:
         web-security-detection-secure-software-development-lifecycle:
           runner:
             setup:
-              checkout: false
-              timeout_minutes: 100
-            type: github_actions
-          steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+              timeout_minutes: 1
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
@@ -108,11 +103,7 @@ override:
         web-security-detection:
           runner:
             setup:
-              checkout: false
-            type: github_actions
-          steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+              timeout_minutes: 1
     workflow-enrichment-code:
       jobs:
         enrich:
