@@ -120,3 +120,12 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
+
+    kubernetes-iac-misconfiguration-detection:
+      jobs:
+        iac-misconfig-detection-kubernetes:
+          runner:
+            setup:
+              checkout: true
+              timeout_minutes: 1
+            type: github_actions
