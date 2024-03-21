@@ -61,7 +61,7 @@ jobs:
     - name: kubescape
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-kubescape-slim:main
+        security_control: registry.jit.io/control-kubescape-slim:not-hardened-avichayJit-patch-1
         security_control_output_file: /code/results.json
         
   iac-misconfig-detection-pulumi:
