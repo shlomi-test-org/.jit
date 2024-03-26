@@ -25,11 +25,12 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Errors, Logging and Auditing Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+  - name: Scan Kubernetes configuration files
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
@@ -62,9 +63,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan Kubernetes configuration files
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
 override:
   workflows:
     api-security:
@@ -88,6 +86,14 @@ override:
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:not-hardened-avichay-asvs
+    kubernetes-iac-misconfiguration-detection:
+      jobs:
+        iac-misconfig-detection-kubernetes:
+          runner:
+            setup:
+              checkout: true
+              timeout_minutes: 100
+            type: github_actions
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
@@ -120,12 +126,3 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
-
-    kubernetes-iac-misconfiguration-detection:
-      jobs:
-        iac-misconfig-detection-kubernetes:
-          runner:
-            setup:
-              checkout: true
-              timeout_minutes: 100
-            type: github_actions
