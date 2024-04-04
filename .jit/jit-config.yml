@@ -10,10 +10,12 @@ applications:
   target_url: https://platform.staging.jit.io
   type: web
 - api_domain: api.staging.jit.io
-  application_name: AssetServiceAPIStaging
-  authentication_mode: non-authenticated
+  application_name: tenant-service
+  authentication_key: Authorization
+  authentication_mode: header-bearer
+  authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
   exclude_paths: []
-  target_url: .jit/asset-service-staging.json
+  target_url: .jit/openapi.json
   type: api
 deployment:
   environments:
@@ -23,14 +25,14 @@ github_branch_protection:
     amount_of_required_reviews: 1
     required_status_checks: []
 plan_items:
-  item-web-app-scanner:
+  item-build-and-deploy:
     deployment:
       configuration:
       - GuyStagingWeb
       tags:
       - nnnnn
       trigger: deployment
-  item-build-and-deploy:
+  item-malicious-software-architecture:
     deployment:
       configuration:
       - GuyStagingWeb
@@ -44,7 +46,7 @@ plan_items:
       tags:
       - nnnnn
       trigger: deployment
-  item-malicious-software-architecture:
+  item-web-app-scanner:
     deployment:
       configuration:
       - GuyStagingWeb
