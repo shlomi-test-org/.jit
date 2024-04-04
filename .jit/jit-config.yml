@@ -9,7 +9,7 @@ applications:
   password_css_selector: ''
   target_url: https://platform.staging.jit.io
   type: web
-- api_domain: api.staging.jit.io
+- api_domain: api.bandit.jitdev.io
   application_name: tenant-service
   authentication_key: Authorization
   authentication_mode: header-bearer
