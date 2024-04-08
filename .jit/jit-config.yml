@@ -12,7 +12,7 @@ applications:
 - api_domain: api.bandit.jitdev.io
   application_name: tenant-service
   authentication_key: Authorization
-  authentication_mode: header-bearer
+  authenticatsdfsdfsdfdsfion_mode: header-bearer
   authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
   exclude_paths: []
   target_url: .jit/openapi.json
