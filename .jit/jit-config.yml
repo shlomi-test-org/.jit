@@ -10,7 +10,7 @@ applications:
   target_url: https://platform.staging.jit.io
   type: web
 - api_domain: api.bandit.jitdev.io
-  application_name: tenant-service
+  application_name: tenant-serviceasfaslkjf;alskfasf
   authentication_key: Authorization
   authenticatsdfsdfsdfdsfion_mode: header-bearer
   authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
