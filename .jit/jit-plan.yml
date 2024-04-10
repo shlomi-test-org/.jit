@@ -141,7 +141,7 @@ override:
             type: github_actions
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:not-hardened-avichay-asvs
+              uses: registry.jit.io/zap:latest
     workflow-enrichment-code:
       jobs:
         enrich:
