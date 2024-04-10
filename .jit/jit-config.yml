@@ -1,13 +1,11 @@
 applications:
-- api_domain: api.staging.jit.io
-  application_name: GuyStagingWeb
-  authentication_mode: non-authenticated
-  exclude_paths:
-  - https://platform.staging.jit.io/logout
-  - https://api.staging.jit.io/tenant/sign-up
-  login_page_url: https://platform.staging.jit.io/login
-  password_css_selector: ''
-  target_url: https://platform.staging.jit.io
+- api_domain: public-api.linearb-staging-01.io
+  application_name: linear-b-test
+  authentication_key: token
+  authentication_mode: custom-cookie
+  authentication_value: ${{ jit_secrets.web_scan_authentication_value }}
+  exclude_paths: []
+  target_url: https://app.linearb-staging-01.io
   type: web
 - api_domain: api.bandit.jitdev.io
   application_name: tenant-service
@@ -46,10 +44,4 @@ plan_items:
       tags:
       - nnnnn
       trigger: deployment
-  item-web-app-scanner:
-    deployment:
-      configuration:
-      - GuyStagingWeb
-      tags:
-      - nnnnn
-      trigger: deployment
+  item-web-app-scanner: {}
