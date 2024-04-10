@@ -308,7 +308,7 @@ jobs:
     - name: hardened-avichay
       uses: jitsecurity-controls/jit-github-action@sc-24369-jit-github-action-write-logic-to-unobfuscated
       with:
-        security_control: registry.jit.io/zap:not-hardened-avichay-asvs
+        security_control: registry.jit.io/zap:latest
         
   web-security-detection-secure-software-development-lifecycle:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection-secure-software-development-lifecycle' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-asvs-secure-software-development-lifecycle'
