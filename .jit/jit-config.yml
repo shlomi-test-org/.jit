@@ -1,5 +1,5 @@
 applications:
-- api_domain: public-api.linearb-staging-01.io
+- api_domain: api.linearb-staging-01.io
   application_name: linear-b-test
   authentication_key: token
   authentication_mode: custom-cookie
