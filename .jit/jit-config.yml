@@ -7,7 +7,7 @@ applications:
   exclude_paths: []
   target_url: https://app.linearb-staging-01.io
   type: web
-- api_domain: api.linearb-staging-01.io
+- api_domain: app.linearb-staging-01.io
   application_name: linear-b--test-api
   authentication_key: Authorization
   authentication_mode: header-bearer
