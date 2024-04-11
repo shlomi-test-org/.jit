@@ -7,8 +7,18 @@
             "url": "https://app.linearb.io/static/media/linearb-logo.4f89da9b69ad724c9f8584f316e8112f.svg"
         }
     },
+    "servers": [
+        {
+          "url": "https://api.linearb-staging-01.io/{basePath}",
+          "variables": {
+            "basePath": {
+              "default": "/api/v1/rest"
+            }
+          }
+        }
+      ],
     "paths": {
-        "/api/v1/rest/invitations": {
+        "/invitations": {
             "post": {
                 "description": "Create an invitation",
                 "operationId": "create_invitation",
