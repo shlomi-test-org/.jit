@@ -11,14 +11,27 @@ items:
   - name: Access Control Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+  - name: There are no dormant GitHub users
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
+  - name: Limit user permissions to follow the least privilege principle
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
+  - name: Enable multi-factor authentication for members
+    uses: >-
+      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
   - name: Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
+  - name: Protect code changes by properly setting branch protection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
   - name: Verify that Github Branch Protection is properly configured
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+  - name: Set desired branch protection configuration
+    uses: >-
+      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -28,9 +41,14 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Errors, Logging and Auditing Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
+  - name: Limit the creation of public repos
+    uses: >-
+      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
   - name: Detect GitHub misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-github-misconfiguration.yml@latest
@@ -66,26 +84,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Set desired branch protection configuration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
-  - name: Protect code changes by properly setting branch protection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/branch_protection/item-branch-protect-code-changes.yml@latest
-  - name: There are no dormant GitHub users
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
-  - name: Limit user permissions to follow the least privilege principle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
-  - name: Enable multi-factor authentication for members
-    uses: >-
-      jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
-  - name: Limit the creation of public repos
-    uses: >-
-      jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
 override:
   workflows:
     api-security:
