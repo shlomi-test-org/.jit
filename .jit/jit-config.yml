@@ -13,7 +13,7 @@ applications:
   authentication_mode: header-bearer
   authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
   exclude_paths: []
-  target_url: .jit/linearb.json
+  target_url: .jit/linearb.yml
   type: api
 deployment:
   environments:
