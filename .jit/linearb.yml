@@ -4,6 +4,8 @@ info:
   version: '1.0'
   x-logo:
     url: https://app.linearb.io/static/media/linearb-logo.4f89da9b69ad724c9f8584f316e8112f.svg
+servers:
+  - url: https://api.linearb-staging-01.io
 paths:
   /api/v1/deployments:
     get:
@@ -1533,7 +1535,7 @@ components:
         - pr.new
         - pr.review_depth
         - pr.reviews
-        - commit.involved.repos.count
+        - commit. olved.repos.count
         - pr.merged.without.review.count
         - releases.count
         - commit.total.count
