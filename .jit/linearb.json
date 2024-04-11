@@ -1,0 +1,106 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "LinearB API",
+        "version": "1.0",
+        "x-logo": {
+            "url": "https://app.linearb.io/static/media/linearb-logo.4f89da9b69ad724c9f8584f316e8112f.svg"
+        }
+    },
+    "paths": {
+        "/api/v1/rest/invitations": {
+            "post": {
+                "description": "Create an invitation",
+                "operationId": "create_invitation",
+                "parameters": [
+                    {
+                        "name": "invitation_type",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "invite_admin",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CreateDeploymentRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "CreateDeploymentRequestModel": {
+                "type": "object",
+                "properties": {
+                    "repositoryId": {
+                        "type": "string",
+                        "description": "Unique identifier for the repository"
+                    },
+                    "deploymentName": {
+                        "type": "string",
+                        "description": "Name of the deployment"
+                    },
+                    "email": {
+                        "type": "string",
+                        "description": "Name of the deployment"
+                    }
+                },
+                "required": ["repositoryId", "deploymentName"]
+            }
+        },
+        "securitySchemes": {
+            "APIKeyHeader": {
+                "type": "apiKey",
+                "in": "header",
+                "name": "x-api-key"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "deployments",
+            "description": "Deployment Tracking API"
+        },
+        {
+            "name": "Measurements V2",
+            "description": "Measurements V2 API"
+        },
+        {
+            "name": "teams",
+            "description": "Teams API"
+        },
+        {
+            "name": "services",
+            "description": "Services API"
+        },
+        {
+            "name": "incidents",
+            "description": "Incidents API"
+        },
+        {
+            "name": "Report Event",
+            "description": "Report Event"
+        }
+    ]
+}
