@@ -19,7 +19,7 @@ applications:
   type: api
 deployment:
   environments:
-  - nnnnn
+  - nnnnnn
 github_branch_protection:
   organization:
     amount_of_required_reviews: 1
