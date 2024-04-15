@@ -21,6 +21,8 @@ deployment:
   environments:
   - nnnnnnn
   - nnnnnnn
+  - nnnnnnn
+  - nnnnnnn
 github_branch_protection:
   organization:
     amount_of_required_reviews: 1
