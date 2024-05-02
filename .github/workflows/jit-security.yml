@@ -84,7 +84,7 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/control-kics-alpine:jitathon
-        security_control_output_file: /code/jit-report/results.json
+        security_control_output_file: /tmp/jit_output.json
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
