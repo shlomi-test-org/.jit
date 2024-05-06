@@ -20,6 +20,8 @@ items:
   - name: Enable multi-factor authentication for members
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
@@ -84,8 +86,34 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
+  - name: Broken Access Control
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-broken-access-control.yml@latest
+  - name: Cryptographic Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-cryptographic-failures.yml@latest
+  - name: Injection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-injection.yml@latest
+  - name: Insecure Design
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-insecure-design.yml@latest
+  - name: Security Misconfiguration
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-security-miscunfiguration.yml@latest
+  - name: Software and Data Integrity Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-software-and-data-integrity-failures.yml@latest
+  - name: Vulnerable and Outdated Components
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-vulnerable-and-outdated-components.yml@latest
 override:
   workflows:
     api-security:
@@ -117,6 +145,17 @@ override:
               checkout: true
               timeout_minutes: 100
             type: github_actions
+    owasp-top-10:
+      jobs:
+        owasp-top-10-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: >-
+                registry.jit.io/zap:sc-24677-jit-plans-create-workflows-for-owasp-top
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
@@ -149,13 +188,3 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
-    owasp-top-10:
-      jobs:
-        owasp-top-10-detection:
-          runner:
-            setup:
-              checkout: false
-            type: github_actions
-          steps:
-            - name: Run ZAP
-              uses: registry.jit.io/zap:sc-24677-jit-plans-create-workflows-for-owasp-top
