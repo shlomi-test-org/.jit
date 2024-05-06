@@ -47,9 +47,6 @@ items:
       2021/item-cryptographic-failures.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Errors, Logging and Auditing Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-errors-logging-and-auditing-architecture.yml@latest
   - name: Limit the creation of public repos
     uses: >-
       jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
