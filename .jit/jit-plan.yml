@@ -66,9 +66,6 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-injection.yml@latest
-  - name: Input and Output Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-input-and-output-architecture.yml@latest
   - name: Insecure Design
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
