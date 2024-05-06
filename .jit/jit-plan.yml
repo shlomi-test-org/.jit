@@ -79,9 +79,6 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-insecure-design.yml@latest
-  - name: Malicious Software Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-malicious-software-architecture.yml@latest
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
