@@ -320,13 +320,3 @@ jobs:
       with:
         security_control: registry.jit.io/zap:latest
         
-  web-security-detection-secure-software-development-lifecycle:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection-secure-software-development-lifecycle' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-asvs-secure-software-development-lifecycle'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 105
-    steps:
-    - name: hardened-avichay
-      uses: jitsecurity-controls/jit-github-action@v4.2.1
-      with:
-        security_control: registry.jit.io/zap:not-hardened-avichay-asvs
-        
