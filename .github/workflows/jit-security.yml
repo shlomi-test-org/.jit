@@ -50,8 +50,8 @@ jobs:
     - name: kics
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-kics-alpine:jitathon
-        security_control_output_file: /tmp/jit_output.json
+        security_control: registry.jit.io/control-kics-alpine:main
+        security_control_output_file: /code/jit-report/results.json
         
   iac-misconfig-detection-kubernetes:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-kubernetes' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-kubernetes-iac-misconfiguration-detection'
@@ -83,8 +83,8 @@ jobs:
     - name: kics
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-kics-alpine:jitathon
-        security_control_output_file: /tmp/jit_output.json
+        security_control: registry.jit.io/control-kics-alpine:main
+        security_control_output_file: /code/jit-report/results.json
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
@@ -105,8 +105,8 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:jitathon3
-        security_control_output_file: /tmp/jit_output.json
+        security_control: registry.jit.io/control-gitleaks-alpine:main
+        security_control_output_file: /tmp/report.json
         
   software-bill-of-materials:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-bill-of-materials' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sbom'
@@ -306,7 +306,7 @@ jobs:
     timeout-minutes: 60
     steps:
     - name: 
-      uses: jitsecurity-controls/jit-github-action@main
+      uses: jitsecurity-controls/jit-github-action@v4.2.1
       with:
         security_control: registry.jit.io/zap:latest
         
