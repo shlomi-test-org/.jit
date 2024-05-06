@@ -87,9 +87,6 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Secure File Upload Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-file-upload-architecture.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
