@@ -149,7 +149,7 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
-    workflow-owasp-top-10:
+    owasp-top-10:
       jobs:
         owasp-top-10-detection:
           runner:
