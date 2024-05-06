@@ -34,6 +34,10 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
+  - name: Broken Access Control
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-broken-access-control.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -43,6 +47,10 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Cryptographic Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-cryptographic-failures.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Errors, Logging and Auditing Architecture
@@ -60,9 +68,17 @@ items:
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Injection
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-injection.yml@latest
   - name: Input and Output Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-input-and-output-architecture.yml@latest
+  - name: Insecure Design
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-insecure-design.yml@latest
   - name: Malicious Software Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-malicious-software-architecture.yml@latest
@@ -77,31 +93,6 @@ items:
   - name: Secure File Upload Architecture
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-file-upload-architecture.yml@latest
-  - name: Secure Software Development Lifecycle
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
-  - name: Generate a Software Bill of Materials (SBOM)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Broken Access Control
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-broken-access-control.yml@latest
-  - name: Cryptographic Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-cryptographic-failures.yml@latest
-  - name: Injection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-injection.yml@latest
-  - name: Insecure Design
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-insecure-design.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -110,10 +101,16 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-software-and-data-integrity-failures.yml@latest
+  - name: Generate a Software Bill of Materials (SBOM)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
   - name: Vulnerable and Outdated Components
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-vulnerable-and-outdated-components.yml@latest
+  - name: Scan your web application for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
     api-security:
