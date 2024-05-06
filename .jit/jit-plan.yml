@@ -41,9 +41,6 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Configuration Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-configuration-architecture.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
