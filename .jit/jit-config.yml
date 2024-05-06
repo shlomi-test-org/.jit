@@ -1,6 +1,6 @@
 applications:
 - api_domain: api.linearb-staging-01.io
-  application_name: linear-b-test-1
+  application_name: linear-b-test-2
   authentication_key: token
   authentication_mode: custom-cookie
   authentication_value: ${{ jit_secrets.web_scan_authentication_value }}
