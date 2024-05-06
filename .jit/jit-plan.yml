@@ -8,9 +8,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: Access Control Architecture
-    uses: >-
-      jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-access-control-architecture.yml@latest
   - name: There are no dormant GitHub users
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
