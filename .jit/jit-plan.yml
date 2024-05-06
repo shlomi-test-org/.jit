@@ -149,3 +149,13 @@ override:
             - name: Run code enrichment
               uses: >-
                 registry.jit.io/control-enrichment-slim:not-hardened-sc-24043-enrichment-control-add-serverless-file-metadatan
+    workflow-owasp-top-10:
+      jobs:
+        owasp-top-10-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:sc-24677-jit-plans-create-workflows-for-owasp-top
