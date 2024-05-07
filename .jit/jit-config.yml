@@ -1,11 +1,11 @@
 applications:
-- api_domain: api.linearb-staging-01.io
-  application_name: linear-b-test-4
-  authentication_key: token
-  authentication_mode: custom-cookie
+- api_domain: api.bandit.jitdev.io
+  application_name: jit-bandit-shlomi-test-org
+  authentication_key: Authorization
+  authentication_mode: header-bearer
   authentication_value: ${{ jit_secrets.web_scan_authentication_value }}
   exclude_paths: []
-  target_url: https://app.linearb-staging-01.io
+  target_url: https://platform.bandit.jitdev.io/
   type: web
 - api_domain: api.linearb-staging-01.io
   application_name: linear-b--test-api
