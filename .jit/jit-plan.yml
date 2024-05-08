@@ -29,6 +29,10 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
+  - name: Broken Access Control
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-broken-access-control.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
@@ -84,10 +88,10 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-vulnerable-and-outdated-components.yml@latest
-  - name: Broken Access Control
+  - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-broken-access-control.yml@latest
+      2021/item-security-misconfiguration.yml@latest
 override:
   workflows:
     api-security:
