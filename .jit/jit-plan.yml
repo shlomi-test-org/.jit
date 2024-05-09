@@ -29,20 +29,12 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
-  - name: Broken Access Control
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-broken-access-control.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-  - name: Cryptographic Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-cryptographic-failures.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit the creation of public repos
@@ -57,14 +49,6 @@ items:
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: Injection
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-injection.yml@latest
-  - name: Insecure Design
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-insecure-design.yml@latest
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
@@ -73,25 +57,9 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Security Misconfiguration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-security-misconfiguration.yml@latest
-  - name: Security Misconfiguration
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-security-miscunfiguration.yml@latest
-  - name: Software and Data Integrity Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-software-and-data-integrity-failures.yml@latest
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: Vulnerable and Outdated Components
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-vulnerable-and-outdated-components.yml@latest
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
