@@ -1,11 +1,9 @@
 applications:
-- api_domain: api.bandit.jitdev.io
-  application_name: jit-bandit-shlomi-test-org
-  authentication_key: Authorization
-  authentication_mode: header-bearer
-  authentication_value: ${{ jit_secrets.web_scan_authentication_value }}
+- api_domain: juice-shop.herokuapp.com
+  application_name: juice-app
+  authentication_mode: non-authenticated
   exclude_paths: []
-  target_url: https://platform.bandit.jitdev.io/
+  target_url: https://juice-shop.herokuapp.com/#/
   type: web
 - api_domain: api.linearb-staging-01.io
   application_name: linear-b--test-api
