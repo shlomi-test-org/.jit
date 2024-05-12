@@ -87,6 +87,10 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+  - name: Cryptographic Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-cryptographic-failures.yml@latest
 override:
   workflows:
     api-security:
