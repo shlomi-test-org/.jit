@@ -99,6 +99,7 @@ override:
       jobs:
         api-security-detection:
           runner:
+            type: github_actions
             setup:
               checkout: false
           steps:
@@ -153,6 +154,7 @@ override:
       jobs:
         web-security-detection:
           runner:
+            type: ci
             setup:
               checkout: false
           steps:
