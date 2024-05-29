@@ -99,7 +99,6 @@ override:
           runner:
             setup:
               checkout: false
-            type: github_actions
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:latest
@@ -110,7 +109,6 @@ override:
             setup:
               checkout: false
               timeout_minutes: 100
-            type: github_actions
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:not-hardened-avichay-asvs
@@ -121,14 +119,12 @@ override:
             setup:
               checkout: true
               timeout_minutes: 100
-            type: github_actions
     owasp-top-10:
       jobs:
         owasp-top-10-detection:
           runner:
             setup:
               checkout: false
-            type: github_actions
           steps:
             - name: Run ZAP
               uses: >-
@@ -139,7 +135,6 @@ override:
           runner:
             setup:
               checkout: false
-            type: github_actions
           steps:
             - name: Run Prowler
               uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
@@ -158,7 +153,6 @@ override:
           runner:
             setup:
               checkout: false
-            type: ci
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:latest
