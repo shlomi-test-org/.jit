@@ -8,14 +8,14 @@ applications:
 - api_domain: api.linearb-staging-01.io
   application_name: linear-b--test-api
   authentication_key: Authorization
-  authentication_mode: header-bearer
+  authention_mode: header-bearer
   authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
   exclude_paths: []
   target_url: .jit/linearb.yml
   type: api
 deployment:
   environments:
-  - nnnnn
+  - nnnnnnn
 github_branch_protection:
   organization:
     amount_of_required_reviews: 1
