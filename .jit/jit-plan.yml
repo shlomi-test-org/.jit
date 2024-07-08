@@ -17,6 +17,8 @@ items:
   - name: Enable multi-factor authentication for members
     uses: >-
       jitsecurity-controls/jit-plans/items/access_management/item-access-management-mfa.yml@latest
+  - name: Scan your API for vulnerabilities
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
   - name: Ensure all credentials used by your applications are not hard-coded
     uses: >-
       jitsecurity-controls/jit-plans/items/identity_and_access_management/item-aws-ftr-secret-detection.yml@latest
@@ -71,8 +73,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -91,17 +91,15 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your API for vulnerabilities
-    uses: jitsecurity-controls/jit-plans/items/runtime/item-api-security.yml@latest
 override:
   workflows:
     api-security:
       jobs:
         api-security-detection:
           runner:
-            type: github_actions
             setup:
               checkout: false
+            type: github_actions
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:latest
@@ -154,9 +152,9 @@ override:
       jobs:
         web-security-detection:
           runner:
-            type: ci
             setup:
               checkout: false
+            type: ci
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:latest
