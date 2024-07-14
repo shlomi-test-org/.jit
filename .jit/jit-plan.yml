@@ -28,9 +28,6 @@ items:
   - name: Set desired branch protection configuration
     uses: >-
       jitsecurity-controls/jit-plans/items/branch_protection/item-branch-set-config.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (GCP)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
   - name: Broken Access Control
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -132,7 +129,7 @@ override:
         runtime-misconfig-detection-gcp:
           runner:
             setup:
-              timeout_minutes: 1
+              timeout_minutes: 240
           steps:
             - name: Run Prowler
               uses: registry.jit.io/prowler:intentional-timeout
