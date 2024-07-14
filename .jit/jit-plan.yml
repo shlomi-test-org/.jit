@@ -133,6 +133,9 @@ override:
           runner:
             setup:
               timeout_minutes: 1
+          steps:
+            - name: Run Prowler
+              uses: registry.jit.io/prowler:intentional-timeout
     sbom:
       jobs:
         software-bill-of-materials:
