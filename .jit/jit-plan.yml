@@ -132,13 +132,7 @@ override:
         runtime-misconfig-detection-gcp:
           runner:
             setup:
-              checkout: false
-          steps:
-            - name: Run Prowler
-              uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
-              with:
-                env:
-                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
+              timeout_minutes: 1
     sbom:
       jobs:
         software-bill-of-materials:
