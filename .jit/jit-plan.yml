@@ -98,7 +98,7 @@ override:
             type: github_actions
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:latest
+              uses: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
     asvs-secure-software-development-lifecycle:
       jobs:
         web-security-detection-secure-software-development-lifecycle:
@@ -150,7 +150,7 @@ override:
             type: ci
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
+              uses: registry.jit.io/zap:latest
     workflow-enrichment-code:
       jobs:
         enrich:
