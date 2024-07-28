@@ -150,7 +150,7 @@ override:
             type: ci
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:latest
+              uses: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
     workflow-enrichment-code:
       jobs:
         enrich:
