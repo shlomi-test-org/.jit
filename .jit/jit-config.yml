@@ -6,7 +6,7 @@ applications:
   target_url: https://juice-shop.herokuapp.com/#/
   type: web
 - api_domain: api.linearb-staging-01.io
-  application_name: linear-b--test-api
+  application_name: linear-b--test-api-2
   authentication_key: Authorization
   authentication_mode: header-bearer
   authentication_value: ${{ jit_secrets.api_scan_authentication_value }}
