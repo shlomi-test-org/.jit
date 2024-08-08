@@ -32,6 +32,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-broken-access-control.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
@@ -64,6 +67,8 @@ items:
   - name: Verify that MFA for your GitHub organization is enabled
     uses: >-
       jitsecurity-controls/jit-plans/items/third_party_app/item-mfa-scm.yml@latest
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -82,11 +87,9 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
+  - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
 override:
   workflows:
     api-security:
@@ -98,7 +101,8 @@ override:
             type: github_actions
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
+              uses: >-
+                registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
     asvs-secure-software-development-lifecycle:
       jobs:
         web-security-detection-secure-software-development-lifecycle:
