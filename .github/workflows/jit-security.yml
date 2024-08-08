@@ -17,10 +17,10 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
-    - name: 
+    - name: 26350-jit-zap-fullscan-control-validating
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
-        security_control: registry.jit.io/zap:latest
+        security_control: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
         
   docker-scan:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'docker-scan' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-docker-scan'
