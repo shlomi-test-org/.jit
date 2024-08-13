@@ -5,9 +5,3 @@ gcp:
     auth:
       api_token: "${{ jit_secrets.test_account_prowler }}"
     project_id: angular-stacker-382507
-  test-integration-prowler-2:
-    type: gcp_account
-    name: test_account_prowler_2
-    auth:
-      api_token: "${{ jit_secrets.test_account_prowler_2 }}"
-    project_id: lalalalaaaaa
