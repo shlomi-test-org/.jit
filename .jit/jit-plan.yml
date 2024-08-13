@@ -133,12 +133,13 @@ override:
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
-          runner:
-            setup:
-              timeout_minutes: 240
           steps:
-            - name: Run Prowler
-              uses: registry.jit.io/prowler:intentional-timeout
+          - name: Run Prowler
+            uses: 899025839375.dkr.ecr.us-east-1.amazonaws.com/prowler:latest
+            with:
+              env:
+                GCP_CREDENTIALS: ${{ jit_secrets.gcp_credentials }}
+                GCP_PROJECTS: angular-stacker-382507,some-project
     sbom:
       jobs:
         software-bill-of-materials:
