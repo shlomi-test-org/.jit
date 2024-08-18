@@ -1,7 +1,1 @@
-gcp:
-  test-integration-prowler:
-    type: gcp_account
-    name: test_account_prowler
-    auth:
-      api_token: "${{ jit_secrets.test_account_prowler }}"
-    project_id: angular-stacker-382507
+
