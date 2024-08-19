@@ -131,7 +131,7 @@ override:
         runtime-misconfig-detection-gcp:
           steps:
             - name: Run Prowler
-              uses: registry.jit.io/prowler:test
+              uses: registry.jit.io/prowler:test-meshi-prowler-gcp
     sbom:
       jobs:
         software-bill-of-materials:
