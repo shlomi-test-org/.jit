@@ -84,10 +84,6 @@ override:
     owasp-top-10:
       jobs:
         owasp-top-10-detection:
-          runner:
-            setup:
-              checkout: false
-            type: ci
           steps:
             - name: Run ZAP
               uses: >-
