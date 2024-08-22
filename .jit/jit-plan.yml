@@ -79,6 +79,10 @@ items:
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
+  - name: Vulnerable and Outdated Components
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-vulnerable-and-outdated-components.yml@latest
 override:
   workflows:
     owasp-top-10:
