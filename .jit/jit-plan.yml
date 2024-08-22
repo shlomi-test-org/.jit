@@ -72,10 +72,6 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-security-misconfiguration.yml@latest
-  - name: Software and Data Integrity Failures
-    uses: >-
-      jitsecurity-controls/jit-plans/items/OWASP Top 10
-      2021/item-software-and-data-integrity-failures.yml@latest
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
