@@ -79,6 +79,10 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-vulnerable-and-outdated-components.yml@latest
+  - name: Software and Data Integrity Failures
+    uses: >-
+      jitsecurity-controls/jit-plans/items/OWASP Top 10
+      2021/item-software-and-data-integrity-failures.yml@latest
 override:
   workflows:
     api-security:
