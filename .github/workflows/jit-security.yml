@@ -223,13 +223,3 @@ jobs:
       with:
         security_control: registry.jit.io/control-semgrep-alpine:main
         
-  web-security-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-web-app-scanner'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: 
-      uses: jitsecurity-controls/jit-github-action@v4.2.2
-      with:
-        security_control: registry.jit.io/zap:latest
-        
