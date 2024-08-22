@@ -79,6 +79,10 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-vulnerable-and-outdated-components.yml@latest
+  - name: Security Misconfiguration
+    uses: >-
+      jitsecurity-controls/jit-plans/items/Web Application
+      Security/item-security-misconfiguration.yml@latest
 override:
   workflows:
     owasp-top-10:
