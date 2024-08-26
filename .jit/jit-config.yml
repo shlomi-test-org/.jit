@@ -1,14 +1,1 @@
-applications:
-- api_domain: juice-shop.herokuapp.com
-  application_name: juice-app
-  authentication_key: password
-  authentication_mode: selenium
-  authentication_value: ${{ jit_secrets.juice-app_web }}
-  exclude_paths: []
-  login_page_url: https://juice-shop.herokuapp.com/#/login
-  password: encrypted$AQICAHi8oKBeWufpQyBhS/I7j+xeXOszTLo37NZpVZLtG7GGBQFJAY3I721BQx2bMCcUQv5BAAAAaDBmBgkqhkiG9w0BBwagWTBXAgEAMFIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxZeBPQTRcUT8iedPAgEQgCWCXeC6IUWWyxp3enriO2sVYYO9OM/wR7qHw60uJA4nj49eG9Tu
-  password_css_selector: ''
-  target_url: https://juice-shop.herokuapp.com/#/
-  type: web
-  username: lironphone1180@gmail.com
-  username_css_selector: ''
+
