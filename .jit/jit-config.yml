@@ -1,6 +1,6 @@
 applications:
 - api_domain: api.myapp.com
-  application_name: my app
+  application_name: my app two
   authentication_mode: non-authenticated
   exclude_paths: []
   target_url: https://myapp.com
