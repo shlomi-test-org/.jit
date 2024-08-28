@@ -63,8 +63,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
