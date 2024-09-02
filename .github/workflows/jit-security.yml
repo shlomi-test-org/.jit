@@ -32,16 +32,6 @@ jobs:
       with:
         security_control: registry.jit.io/control-enrichment-slim:main
         
-  iac-misconfig-detection-cloudformation:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-cloudformation' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.2
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        
   iac-misconfig-detection-kubernetes:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-kubernetes' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-kubernetes-iac-misconfiguration-detection'
     runs-on: ubuntu-22.04
@@ -51,36 +41,6 @@ jobs:
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
         security_control: registry.jit.io/control-kubescape-slim:main
-        
-  iac-misconfig-detection-pulumi:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-pulumi' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.2
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        
-  iac-misconfig-detection-serverless:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-serverless' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.2
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
-        
-  iac-misconfig-detection-terraform:
-    if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'iac-misconfig-detection-terraform' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-iac-misconfiguration-detection'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: kics
-      uses: jitsecurity-controls/jit-github-action@v4.2.2
-      with:
-        security_control: registry.jit.io/control-kics-alpine:main
         
   remediation-pr:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'remediation-pr' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-remediation-pr'
