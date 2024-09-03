@@ -89,3 +89,26 @@ override:
             - name: Run ZAP
               uses: >-
                 registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
+verride:
+  workflows:
+    api-security:
+      jobs:
+        api-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: github_actions
+          steps:
+            - name: Run ZAP
+              uses: >-
+                registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
+    web-app-scanner:
+      jobs:
+        web-security-detection:
+          runner:
+            setup:
+              checkout: false
+            type: ci
+          steps:
+            - name: Run ZAP
+              uses: registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
