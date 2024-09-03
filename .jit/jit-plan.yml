@@ -89,6 +89,7 @@ override:
             - name: Run ZAP
               uses: >-
                 registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
+
 verride:
   workflows:
     api-security:
