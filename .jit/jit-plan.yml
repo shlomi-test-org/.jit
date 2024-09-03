@@ -109,7 +109,7 @@ verride:
           runner:
             setup:
               checkout: false
-            type: github_actions
+            type: ci
           steps:
             - name: Run ZAP
               uses: registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
