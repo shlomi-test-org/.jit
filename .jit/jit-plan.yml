@@ -90,7 +90,7 @@ override:
               uses: >-
                 registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
 
-verride:
+override:
   workflows:
     api-security:
       jobs:
