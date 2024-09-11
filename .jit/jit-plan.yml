@@ -46,6 +46,9 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Injection
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -77,19 +80,9 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+  - name: Scan your code for vulnerabilities (SAST)
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-override:
-  workflows:
-    owasp-top-10:
-      jobs:
-        owasp-top-10-detection:
-          steps:
-            - name: Run ZAP
-              uses: >-
-                registry.jit.io/zap:sc-26779-jit-plans-zap-control-research-deprecation
-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
 override:
   workflows:
     api-security:
@@ -112,4 +105,5 @@ override:
             type: ci
           steps:
             - name: Run ZAP
-              uses: registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
+              uses: >-
+                registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
