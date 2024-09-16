@@ -90,7 +90,7 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@v4.2.2
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:ep-sc-27132-jit-entrypoint-merge-case-should-not-filter
+        security_control: registry.jit.io/control-gitleaks-alpine:ep-sc-26559-fix-snapshot_attributes_bug
         
   software-component-analysis-elixir:
     if: fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'software-component-analysis-elixir' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-sca'
