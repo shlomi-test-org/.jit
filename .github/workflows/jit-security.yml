@@ -18,4 +18,4 @@ jobs:
     steps:
     # If for some reason inputs.client_payload won't work then use github.event.inputs.client_payload
     - name: ${{ fromJSON( inputs.client_payload ).payload.workflow_job_name }}
-      uses: jitsecurity-controls/jit-github-action@latest
+      uses: jitsecurity-controls/jit-github-action@dynamicsecurityyaml
