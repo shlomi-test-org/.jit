@@ -107,5 +107,8 @@ override:
             type: ci
           steps:
             - name: Run ZAP
+              with:
+                env:
+                  AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
               uses: >-
                 registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
