@@ -40,6 +40,8 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-cryptographic-failures.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Limit the creation of public repos
     uses: >-
       jitsecurity-controls/jit-plans/items/external_exposure/item-external-exposure-limit-creation-repo.yml@latest
@@ -49,9 +51,6 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
   - name: Injection
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
@@ -83,8 +82,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
     api-security:
@@ -107,8 +104,8 @@ override:
             type: ci
           steps:
             - name: Run ZAP
+              uses: >-
+                registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
               with:
                 env:
                   AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
-              uses: >-
-                registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
