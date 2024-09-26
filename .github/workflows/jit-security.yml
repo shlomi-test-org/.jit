@@ -18,13 +18,4 @@ jobs:
     steps:
     # If for some reason inputs.client_payload won't work then use github.event.inputs.client_payload
     - name: ${{ fromJSON( inputs.client_payload ).payload.workflow_job_name }}
-      uses: jitsecurity-controls/jit-github-action@dynamicsecurityyaml
-  web-security-detection:
-    if: fromJSON(github.event.inputs.client_payload).payload.uses_github_secrets == true && fromJSON(github.event.inputs.client_payload).payload.workflow_job_name == 'web-security-detection' && fromJSON(github.event.inputs.client_payload).payload.workflow_slug == 'workflow-web-app-scanner'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 60
-    steps:
-    - name: 26970-jit-zap-control-duplicated-urls-in
-      uses: jitsecurity-controls/jit-github-action@dynamicsecurityyaml
-      with:
-        inline_environment: -e AUTHENTICATION_VALUE="${{ secrets.AUTHENTICATION_VALUE }}"
+      uses: jitsecurity-controls/jit-github-action@latest
