@@ -13,7 +13,6 @@ permissions:
 
 jobs:
   jit-ci-job:
-    if: fromJSON(github.event.inputs.client_payload).payload.uses_github_secrets == false
     runs-on: ubuntu-20.04
     steps:
     # If for some reason inputs.client_payload won't work then use github.event.inputs.client_payload
