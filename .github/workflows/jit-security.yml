@@ -15,7 +15,7 @@ permissions:
 jobs:
   jit-ci-job:
     runs-on: ubuntu-22.04
-    timeout-minutes: ${{ (fromJSON(github.event.inputs.client_payload).payload.runner_setup.timeout_minutes || 15) + 5 }}
+    timeout-minutes: ${{ (fromJSON(github.event.inputs.client_payload).payload.runner_setup.timeout_minutes || 15) }} + 5
     steps:
     - name: ${{ fromJSON( inputs.client_payload ).payload.workflow_job_name }}
       uses: jitsecurity-controls/jit-github-action@latest
