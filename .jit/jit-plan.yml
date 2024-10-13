@@ -9,8 +9,6 @@ references:
   - https://www.jit.io
 tags: []
 items:
-  - name: There are no dormant GitHub users
-    uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-dormant-users.yml@latest
   - name: Limit user permissions to follow the least privilege principle
     uses: jitsecurity-controls/jit-plans/items/access_management/item-access-management-least-privilege.yml@latest
   - name: Enable multi-factor authentication for members
@@ -82,3 +80,10 @@ override:
             with:
               env:
                 AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
+    github-misconfiguration-access-management-dormant-users:
+      jobs:
+        chainbench-access-management-dormant-users:
+          steps:
+            - name: Run chain-bench
+              uses: >-
+                registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
