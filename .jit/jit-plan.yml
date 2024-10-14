@@ -116,3 +116,13 @@ override:
               with:
                 env:
                   AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
+    secret-detection:
+      jobs:
+        secret-detection:
+          runner:
+            type: jit
+            setup:
+              checkout: true
+          steps:
+            - name: Run Gitleaks
+              uses: registry.jit.io/control-gitleaks-alpine:latest
