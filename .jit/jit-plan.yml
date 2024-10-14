@@ -27,9 +27,6 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-broken-access-control.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
@@ -102,6 +99,16 @@ override:
             - name: Run chain-bench
               uses: >-
                 registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
+    secret-detection:
+      jobs:
+        secret-detection:
+          runner:
+            setup:
+              checkout: true
+            type: jit
+          steps:
+            - name: Run Gitleaks
+              uses: registry.jit.io/control-gitleaks-alpine:code-controls-poc
     web-app-scanner:
       jobs:
         web-security-detection:
@@ -116,13 +123,3 @@ override:
               with:
                 env:
                   AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
-    secret-detection:
-      jobs:
-        secret-detection:
-          runner:
-            type: jit
-            setup:
-              checkout: true
-          steps:
-            - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:code-controls-poc
