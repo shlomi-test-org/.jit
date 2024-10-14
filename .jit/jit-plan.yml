@@ -125,4 +125,4 @@ override:
               checkout: true
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:latest
+              uses: registry.jit.io/control-gitleaks-alpine:code-controls-poc
