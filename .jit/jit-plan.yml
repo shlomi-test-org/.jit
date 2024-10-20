@@ -108,7 +108,7 @@ override:
             type: jit
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:code-controls-poc
+              uses: registry.jit.io/control-gitleaks-alpine:sc-27539-align-controls-dockerfiles-entrypoint-command
     web-app-scanner:
       jobs:
         web-security-detection:
