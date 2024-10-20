@@ -3,7 +3,7 @@ applications:
   application_name: GuyStagingWeb
   authentication_mode: non-authenticated
 HOLA AMIGO
-SECRET=secret_secret  
+SECRET=SuperSecret123
 
 exclude_paths:
   - https://platform.staging.jit.io/logout
