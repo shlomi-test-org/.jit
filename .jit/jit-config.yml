@@ -2,7 +2,10 @@ applications:
 - api_domain: api.staging.jit.io
   application_name: GuyStagingWeb
   authentication_mode: non-authenticated
-  exclude_paths:
+HOLA AMIGO
+SECRET=secret_secret  
+
+exclude_paths:
   - https://platform.staging.jit.io/logout
   - https://api.staging.jit.io/tenant/sign-up
   login_page_url: https://platform.staging.jit.io/login
