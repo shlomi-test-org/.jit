@@ -132,6 +132,8 @@ override:
         runtime-misconfig-detection-gcp:
           runner:
             type: jit
+            setup:
+              auth_type: null
           steps:
             - name: Run Prowler
               uses: registry.jit.io/prowler:latest
