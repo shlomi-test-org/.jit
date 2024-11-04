@@ -27,6 +27,9 @@ items:
     uses: >-
       jitsecurity-controls/jit-plans/items/OWASP Top 10
       2021/item-broken-access-control.yml@latest
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
@@ -59,8 +62,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (GCP)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-gcp.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Security Misconfiguration
     uses: >-
       jitsecurity-controls/jit-plans/items/Web Application
@@ -79,9 +80,6 @@ items:
   - name: Scan your web application for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
 override:
   workflows:
     api-security:
@@ -102,6 +100,19 @@ override:
             - name: Run chain-bench
               uses: >-
                 registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
+    runtime-misconfiguration-detection-gcp:
+      jobs:
+        runtime-misconfig-detection-gcp:
+          runner:
+            setup:
+              auth_type: no_auth
+            type: jit
+          steps:
+            - name: Run Prowler
+              uses: registry.jit.io/prowler:latest
+              with:
+                env:
+                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
     secret-detection:
       jobs:
         secret-detection:
@@ -127,16 +138,3 @@ override:
               with:
                 env:
                   AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
-    runtime-misconfiguration-detection-gcp:
-      jobs:
-        runtime-misconfig-detection-gcp:
-          runner:
-            type: jit
-            setup:
-              auth_type: no_auth
-          steps:
-            - name: Run Prowler
-              uses: registry.jit.io/prowler:latest
-              with:
-                env:
-                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
