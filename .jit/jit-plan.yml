@@ -7,76 +7,21 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items: 
+items:
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan code for hard-coded secrets
+    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: Scan your code for vulnerabilities (SAST)
-    uses: >-
-      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-# override:
-#   workflows:
-#     api-security:
-#       jobs:
-#         api-security-detection:
-#           runner:
-#             setup:
-#               checkout: false
-#             type: github_actions
-#           steps:
-#             - name: Run ZAP
-#               uses: >-
-#                 registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
-#     github-misconfiguration-access-management-dormant-users:
-#       jobs:
-#         chainbench-access-management-dormant-users:
-#           steps:
-#             - name: Run chain-bench
-#               uses: >-
-#                 registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
-#     runtime-misconfiguration-detection-gcp:
-#       jobs:
-#         runtime-misconfig-detection-gcp:
-#           runner:
-#             setup:
-#               auth_type: no_auth
-#             type: jit
-#           steps:
-#             - name: Run Prowler
-#               uses: registry.jit.io/prowler:latest
-#               with:
-#                 env:
-#                   GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
-#     secret-detection:
-#       jobs:
-#         secret-detection:
-#           runner:
-#             setup:
-#               checkout: true
-#             type: jit
-#           steps:
-#             - name: Run Gitleaks
-#               uses: >-
-#                 registry.jit.io/control-gitleaks-alpine:sc-27539-align-controls-dockerfiles-entrypoint-command
-#     web-app-scanner:
-#       jobs:
-#         web-security-detection:
-#           runner:
-#             setup:
-#               checkout: false
-#             type: ci
-#           steps:
-#             - name: Run ZAP
-#               uses: >-
-#                 registry.jit.io/zap:sc-26970-jit-zap-control-duplicated-urls-in-snapshot
-#               with:
-#                 env:
-#                   AUTHENTICATION_VALUE: ${{ secrets.AUTHENTICATION_VALUE }}
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+
