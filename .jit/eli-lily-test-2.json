@@ -1,6 +1,7 @@
 {
     "basePath": "/api",
     "host": "altoromutual.com",
+    "schemes": ["https"],
     "paths":
     {
         "/login":
