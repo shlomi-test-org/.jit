@@ -51,6 +51,10 @@ override:
     secret-detection:
       jobs:
         secret-detection:
+          runner:
+            setup:
+              checkout: true
+            type: ci
           steps:
             - name: Run Gitleaks
               uses: >-
