@@ -1,1 +1,7 @@
-applications: []
+applications:
+- api_domain: altoromutual.com
+  application_name: eli-lily
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: .jit/eli-lily-test-2.json
+  type: api
