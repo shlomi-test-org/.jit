@@ -17,3 +17,9 @@ applications:
   exclude_paths: []
   target_url: https://altoromutual.com/swagger/properties.json
   type: api
+- api_domain: altoromutual.com
+  application_name: eli_lily_test3
+  authentication_mode: non-authenticated
+  exclude_paths: []
+  target_url: .jit/eli_lily_test_swagger.json
+  type: api
