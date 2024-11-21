@@ -1,5 +1,6 @@
 name: My plan
 level: beginner
+update_id: 17afd94c-e702-423a-a511-9220a7f02ff3
 author: Jit
 version: 0.1
 owners:
@@ -13,8 +14,7 @@ items:
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Scan your web application for vulnerabilities
-    uses: >-
-      jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+    uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
 override:
   workflows:
     api-security:
@@ -25,16 +25,14 @@ override:
               checkout: false
             type: github_actions
           steps:
-            - name: Run ZAP
-              uses: >-
-                registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
+          - name: Run ZAP
+            uses: registry.jit.io/zap:sc-26350-jit-zap-fullscan-control-validating-target
     github-misconfiguration-access-management-dormant-users:
       jobs:
         chainbench-access-management-dormant-users:
           steps:
-            - name: Run chain-bench
-              uses: >-
-                registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
+          - name: Run chain-bench
+            uses: registry.jit.io/control-chain-bench-alpine:sc-24120-jit-entrypoint-send-errors-with-new-format
     runtime-misconfiguration-detection-gcp:
       jobs:
         runtime-misconfig-detection-gcp:
@@ -43,11 +41,11 @@ override:
               auth_type: no_auth
             type: jit
           steps:
-            - name: Run Prowler
-              uses: registry.jit.io/prowler:latest
-              with:
-                env:
-                  GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
+          - name: Run Prowler
+            uses: registry.jit.io/prowler:latest
+            with:
+              env:
+                GCP_CREDENTIALS: ${{ jit_secrets.${{ context.asset.asset_name }} }}
     secret-detection:
       jobs:
         secret-detection:
@@ -56,6 +54,5 @@ override:
               checkout: true
             type: ci
           steps:
-            - name: Run Gitleaks
-              uses: >-
-                registry.jit.io/control-gitleaks-alpine:sc-27793-jit-utils-create-backlogbranchchanged-jit
+          - name: Run Gitleaks
+            uses: registry.jit.io/control-gitleaks-alpine:sc-27793-jit-utils-create-backlogbranchchanged-jit
