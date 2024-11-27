@@ -22,4 +22,4 @@ override:
         secret-detection:
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:develop_checkout
+              uses: registry.jit.io/control-gitleaks-alpine:ep-develop_checkout
