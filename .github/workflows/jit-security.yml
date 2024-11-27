@@ -30,5 +30,5 @@ jobs:
     - name: gitleaks
       uses: jitsecurity-controls/jit-github-action@v4.2.3
       with:
-        security_control: registry.jit.io/control-gitleaks-alpine:main
+        security_control: registry.jit.io/control-gitleaks-alpine:develop_checkout
         
