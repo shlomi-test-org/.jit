@@ -15,3 +15,11 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Scan your web application for vulnerabilities
     uses: jitsecurity-controls/jit-plans/items/runtime/item-web-app-scanner.yml@latest
+override:
+  workflows:
+    secret-detection:
+      jobs:
+        secret-detection:
+          steps:
+            - name: Run Gitleaks
+              uses: registry.jit.io/control-gitleaks-alpine:develop_checkout
