@@ -35,11 +35,3 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
-override:
-  workflows:
-    secret-detection:
-      jobs:
-        secret-detection:
-          steps:
-            - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:ep-develop_checkout
