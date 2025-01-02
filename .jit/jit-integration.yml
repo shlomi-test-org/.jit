@@ -11,3 +11,12 @@ gcp:
     auth:
       api_token: "${{ jit_secrets.test_account_prowler_2 }}"
     project_id: lalalalaaaaa
+azure:
+  testazureaccount:
+    type: azure_account
+    name: "testazureaccount"
+    auth:
+      client_id: "${{ jit_secrets.azure_client_id }}"
+      client_secret: "${{ jit_secrets.azure_client_secret }}"
+    tenant_id: 63ef19d4-72b4-4d72-ace1-be6e95a199b4
+    subscription_id: "${{ jit_secrets.azure_subscription_ids }}"
