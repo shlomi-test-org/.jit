@@ -44,12 +44,3 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-override:
-  workflows:
-    secret-detection:
-      jobs:
-        secret-detection:
-          steps:
-            - name: Run Gitleaks
-              uses: >-
-                registry.jit.io/control-gitleaks-alpine:aaaaaaa
