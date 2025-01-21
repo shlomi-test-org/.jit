@@ -52,4 +52,4 @@ override:
           steps:
             - name: Run Gitleaks
               uses: >-
-                registry.jit.io/control-gitleaks-alpine:ep-sc-27799-entrypoint-work-with-the-new-backlog-branch
+                registry.jit.io/control-gitleaks-alpine:aaaaaaa
