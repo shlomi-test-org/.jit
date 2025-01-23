@@ -1,17 +1,7 @@
 applications:
-- api_domain: altoromutual.com
-  application_name: eli-lily
+- api_domain: juiceshop.com
+  application_name: httpsjuiceshopcom
   authentication_mode: non-authenticated
   exclude_paths: []
-  target_url: .jit/eli-lily-test-2.json
-  type: api
-- api_domain: altoromutual.com
-  application_name: eli_lily_ui
-  authentication_mode: non-authenticated
-  exclude_paths: []
-  target_url: https://altoromutual.com
+  target_url: https://juiceshop.com/
   type: web
-github_branch_protection:
-  organization:
-    amount_of_required_reviews: 1
-    required_status_checks: []
