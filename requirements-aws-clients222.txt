@@ -1,0 +1,5 @@
+-r requirements-aws-clients.txt
+
+aiobotocore>=2.17.0
+types-aiobotocore-lite[dynamodb,s3]
+more_itertools>=9.0.0
