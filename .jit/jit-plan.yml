@@ -7,10 +7,12 @@ owners:
 references:
   - https://www.jit.io
 tags: []
-items: 
+items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
     sast:
@@ -18,10 +20,12 @@ override:
         static-code-analysis-php:
           steps:
             - name: Run semgrep php
-              uses: registry.jit.io/control-semgrep-alpine:sc-28610-semgrep-semgrep-php-is-too-slow-try-to-research
+              uses: >-
+                registry.jit.io/control-semgrep-alpine:sc-28610-semgrep-semgrep-php-is-too-slow-try-to-research
     sca:
       jobs:
         software-component-analysis-python:
           steps:
             - name: Run osv-scanner
-              uses: registry.jit.io/control-osv-scanner-alpine:sc-26143-osv-scanner-delete-requirements-file-references
+              uses: >-
+                registry.jit.io/control-osv-scanner-alpine:sc-26143-osv-scanner-delete-requirements-file-references
