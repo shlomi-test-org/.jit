@@ -19,3 +19,9 @@ override:
           steps:
             - name: Run semgrep php
               uses: registry.jit.io/control-semgrep-alpine:sc-28610-semgrep-semgrep-php-is-too-slow-try-to-research
+    sca:
+      jobs:
+        software-component-analysis-python:
+          steps:
+            - name: Run osv-scanner
+              uses: registry.jit.io/control-osv-scanner-alpine:sc-26143-osv-scanner-delete-requirements-file-references
