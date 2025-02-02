@@ -21,6 +21,9 @@ items:
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
+  - name: Scan Kubernetes configuration files
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
 override:
   workflows:
     sast:
