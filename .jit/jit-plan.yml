@@ -25,6 +25,8 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (Azure)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
     sast:
