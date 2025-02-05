@@ -5,3 +5,8 @@ applications:
   exclude_paths: []
   target_url: https://juiceshop.com/
   type: web
+github_branch_protection:
+  organization:
+    amount_of_required_reviews: 0
+    required_status_checks:
+    - '1'
