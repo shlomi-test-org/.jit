@@ -8,12 +8,23 @@ references:
   - https://www.jit.io
 tags: []
 items:
+  - name: Verify that Github Branch Protection is properly configured
+    uses: >-
+      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations (Azure)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Secure Software Development Lifecycle
@@ -22,17 +33,9 @@ items:
   - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-  - name: Scan infrastructure for runtime misconfigurations (Azure)
+  - name: Scan your code for license violations
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
-    uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-  - name: Verify that Github Branch Protection is properly configured
-    uses: >-
-      jitsecurity-controls/jit-plans/items/third_party_app/item-branch-protection-scm.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
 override:
   workflows:
     sast:
