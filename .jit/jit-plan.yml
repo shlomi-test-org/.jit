@@ -14,8 +14,6 @@ items:
   - name: Scan your code for vulnerabilities (SAST)
     uses: >-
       jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-  - name: Scan your code dependencies for vulnerabilities (SCA)
-    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
@@ -25,8 +23,6 @@ items:
   - name: Scan infrastructure for runtime misconfigurations (Azure)
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection-azure.yml@latest
-  - name: Scan code for hard-coded secrets
-    uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
   - name: Secure Software Development Lifecycle
     uses: >-
       jitsecurity-controls/jit-plans/items/architecture_design_and_threat_modeling/item-secure-software-development-lifecycle.yml@latest
