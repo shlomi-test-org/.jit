@@ -1,0 +1,5 @@
+aws:
+- account_id: '748560276420'
+  regions:
+  - us-east-1
+  type: account
