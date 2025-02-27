@@ -14,6 +14,9 @@ items:
   - name: Scan your Dockerfiles for vulnerabilities
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Scan your container images on-build
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan-on-build.yml@latest
   - name: Scan your code dependencies for vulnerabilities (SCA)
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
   - name: Scan your infrastructure-as-code (IaC) for misconfigurations
@@ -24,7 +27,7 @@ items:
       jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-  - name: Scan your container images on-build
+  - name: Generate a Software Bill of Materials (SBOM)
     uses: >-
-      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan-on-build.yml@latest
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 
