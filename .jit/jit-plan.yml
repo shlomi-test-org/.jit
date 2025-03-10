@@ -43,6 +43,7 @@ override:
         iac-misconfig-detection-kubernetes:
           steps:
             - name: Run kubescape
+              uses: ${{ context.config.custom_registry || registry.jit.io }}/control-kubescape-slim:kubescape_control_exclusion
               with:
                 args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions .jit/kub.json .
 
