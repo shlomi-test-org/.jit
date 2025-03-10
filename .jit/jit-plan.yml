@@ -44,5 +44,5 @@ override:
           steps:
             - name: Run kubescape
               with:
-                args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions /tmp/centralized-repo/.jit/kubbb.json .
+                args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions .jit/kub.json .
 
