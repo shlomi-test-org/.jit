@@ -45,5 +45,5 @@ override:
             - name: Run kubescape
               uses: registry.jit.io/control-kubescape-slim:kubescape_control_exclusion
               with:
-                args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions .jit/kub.json .
+                args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions /tmp/centralized-repo/.jit/kub.json .
 
