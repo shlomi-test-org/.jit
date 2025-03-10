@@ -36,4 +36,13 @@ items:
   - name: Scan Kubernetes configuration files
     uses: >-
       jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+override:
+  workflows:
+    kubernetes-iac-misconfiguration-detection:
+      jobs:
+        iac-misconfig-detection-kubernetes:
+          steps:
+            - name: Run kubescape
+              with:
+                args: scan -v --format json --format-version v2 --output raw-kubescape-results.json --exceptions /tmp/centralized-repo/.jit/kub.json .
 
