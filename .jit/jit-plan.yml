@@ -1,43 +1,53 @@
-author: Jit
-items:
-- name: Scan your code for vulnerabilities (SAST)
-  uses: jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
-- name: Scan your Dockerfiles for vulnerabilities
-  uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
-- name: Scan your container images on-build
-  uses: jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan-on-build.yml@latest
-- name: Scan your code dependencies for vulnerabilities (SCA)
-  uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
-- name: Scan Kubernetes configuration files
-  uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
-- name: Scan your infrastructure-as-code (IaC) for misconfigurations
-  uses: jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
-- name: Scan your code for license violations
-  uses: jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
-- name: Scan infrastructure for runtime misconfigurations
-  uses: jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
-- name: Scan code for hard-coded secrets
-  uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-- name: Generate a Software Bill of Materials (SBOM)
-  uses: jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
-- name: Analyze for Jit Context
-  uses: jitsecurity-controls/jit-plans/items/jit-context/item-jit-context-analysis.yml@latest
-level: beginner
 name: My plan
+level: beginner
+author: Jit
+version: 0.1
+owners:
+  default: null
+references:
+  - https://www.jit.io
+tags: []
+items:
+  - name: Scan your code for vulnerabilities (SAST)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-code-vulnerability.yml@latest
+  - name: Scan your Dockerfiles for vulnerabilities
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan.yml@latest
+  - name: Scan your container images on-build
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-container-scan-on-build.yml@latest
+  - name: Scan your code dependencies for vulnerabilities (SCA)
+    uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
+  - name: Scan Kubernetes configuration files
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-kubernetes.yml@latest
+  - name: Scan your infrastructure-as-code (IaC) for misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-iac-misconfiguration-detection.yml@latest
+  - name: Analyze for Jit Context
+    uses: >-
+      jitsecurity-controls/jit-plans/items/jit-context/item-jit-context-analysis.yml@latest
+  - name: Scan your code for license violations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-license-compliance.yml@latest
+  - name: Scan infrastructure for runtime misconfigurations
+    uses: >-
+      jitsecurity-controls/jit-plans/items/infrastructure/item-runtime-misconfiguration-detection.yml@latest
+  - name: Generate a Software Bill of Materials (SBOM)
+    uses: >-
+      jitsecurity-controls/jit-plans/items/code/item-software-bill-of-materials.yml@latest
 override:
   workflows:
     kubernetes-iac-misconfiguration-detection:
       jobs:
         iac-misconfig-detection-kubernetes:
           steps:
-          - name: Run kubescape
-            uses: registry.jit.io/control-kubescape-slim:kubescape_control_exclusion
-            with:
-              args: scan -v --format json --format-version v2 --output raw-kubescape-results.json
-                --exceptions /tmp/centralized-repo/.jit/kub.json .
-owners:
-  default: null
-references:
-- https://www.jit.io
-tags: []
-version: 0.1
+            - name: Run kubescape
+              uses: >-
+                registry.jit.io/control-kubescape-slim:kubescape_control_exclusion
+              with:
+                args: >-
+                  scan -v --format json --format-version v2 --output
+                  raw-kubescape-results.json --exceptions
+                  /tmp/centralized-repo/.jit/kub.json .
