@@ -10,17 +10,3 @@ tags: []
 items:
   - name: Scan code for hard-coded secrets
     uses: jitsecurity-controls/jit-plans/items/code/item-secret-detection.yml@latest
-override:
-  workflows:
-    secret-detection:
-      jobs:
-        secret-detection:
-          steps:
-            - name: Run Gitleaks
-              uses: registry.jit.io/control-gitleaks-alpine:ep-sc-29488
-    enrichment-code:
-      jobs:
-        enrich:
-          steps:
-            - name: Run code enrichment
-              uses: registry.jit.io/control-enrichment-slim:ep-sc-29488
