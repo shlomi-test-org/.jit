@@ -17,4 +17,4 @@ override:
         secret-detection:
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io//control-gitleaks-alpine:sc-29488
+              uses: registry.jit.io//control-gitleaks-alpine:ep-sc-29488
