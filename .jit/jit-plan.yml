@@ -28,6 +28,4 @@ override:
         secret-detection:
           steps:
             - name: Run Gitleaks
-              uses: >-
-                ${{ context.config.custom_registry || registry.jit.io
-                }}/control-semgrep-alpine:ep-sc-29884-diff-is-ignored-in-pr-review
+              uses: registry.jit.io/control-semgrep-alpine:ep-sc-29884-diff-is-ignored-in-pr-review
