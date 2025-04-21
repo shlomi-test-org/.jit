@@ -28,4 +28,4 @@ override:
         secret-detection:
           steps:
             - name: Run Gitleaks
-              uses: registry.jit.io/jit-gitleaks-control:ep-sc-29884-diff-is-ignored-in-pr-review
+              uses: registry.jit.io/control-gitleaks-alpine:ep-sc-29884-diff-is-ignored-in-pr-review
