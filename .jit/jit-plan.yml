@@ -29,3 +29,10 @@ override:
           steps:
             - name: Run Gitleaks
               uses: registry.jit.io/control-gitleaks-alpine:ep-sc-29884-diff-is-ignored-in-pr-review
+    workflow-container-scan-on-build:
+      jobs:
+        on-build-container-scan:
+          steps:
+            - name: Run trivy container scan
+              uses: registry.jit.io/control-container-scanner-alpine:sc-29892--osv-container-scanner-add-cves-to-findings
+              executable: s3://jit-controls-binaries-prod/jit-container-scanner-control/sc-29892--osv-container-scanner-add-cves-to-findings/jit-container-scanner-control-${{ context.jit_event.arch }}-${{ context.jit_event.os }}
