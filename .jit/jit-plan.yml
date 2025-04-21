@@ -23,11 +23,11 @@ items:
     uses: jitsecurity-controls/jit-plans/items/code/item-dependency-check.yml@latest
 override:
   workflows:
-    sast:
+    secret-detection:
       jobs:
-        static-code-analysis-yaml:
+        secret-detection:
           steps:
-            - name: Run semgrep yaml
+            - name: Run Gitleaks
               uses: >-
                 ${{ context.config.custom_registry || registry.jit.io
-                }}/control-semgrep-alpine:sc-29499-semgrep-and-osv-trigger-adjustments
+                }}/control-semgrep-alpine:ep-sc-29884-diff-is-ignored-in-pr-review
